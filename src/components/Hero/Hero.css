@@ -1,0 +1,147 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* ===== Hero Content ===== */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: 0 24px;
+}
+
+.hero__greeting {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.hero__name {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+
+.hero__role {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  min-height: 2.2em;
+}
+
+.hero__role .accent {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.hero__cursor {
+  display: inline-block;
+  color: var(--accent);
+  animation: blink 0.8s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.hero__tagline {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+
+/* ===== CTA Buttons ===== */
+.hero__cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.hero__btn {
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.hero__btn--primary {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+}
+
+.hero__btn--primary:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hero__btn--secondary {
+  border: 1.5px solid var(--btn-outline);
+  color: var(--text-primary);
+  background: transparent;
+}
+
+.hero__btn--secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ===== Social Icons ===== */
+.hero__socials {
+  display: flex;
+  gap: 24px;
+}
+
+.hero__socials a {
+  font-size: 1.3rem;
+  color: var(--text-faint);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.hero__socials a:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero__name {
+    font-size: 2.4rem;
+  }
+
+  .hero__role {
+    font-size: 1.1rem;
+  }
+
+  .hero__tagline {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__name {
+    font-size: 2rem;
+  }
+
+  .hero__btn {
+    padding: 12px 24px;
+    font-size: 0.85rem;
+  }
+}
