@@ -1,3 +1,5 @@
+import { FaPlay } from 'react-icons/fa';
+import { FaSpotify } from 'react-icons/fa';
 import portfolioData from '../../data/portfolioData';
 import './About.css';
 
@@ -14,11 +16,23 @@ const About = () => {
   const { onLoop, timeline, findMe } = portfolioData;
 
   return (
-    <section className="me section" id="me">
-      <div className="section__container">
-        <p className="me__bio" data-aos="fade-up">
-          {bio}
-        </p>
+    <section className="me" id="me">
+      <div className="me__container">
+        <div className="me__intro">
+          <h1 className="me__heading" data-aos="fade-up">
+            hey, i'm{' '}
+            <em>
+              {portfolioData.personalInfo.name
+                .split(' ')
+                .map((w) => w.replace(/[^a-zA-Z]/g, ''))
+                .filter((w) => w.length > 1)[0]
+                ?.toLowerCase()}
+            </em>
+          </h1>
+          <p className="me__bio" data-aos="fade-up" data-aos-delay="100">
+            {bio}
+          </p>
+        </div>
 
         <div className="me__grid" data-aos="fade-up" data-aos-delay="200">
           {/* On Loop */}
@@ -26,16 +40,28 @@ const About = () => {
             <h3 className="me__col-title">On Loop</h3>
             <ul className="me__list">
               {onLoop.map((song, i) => (
-                <li className="me__song" key={i}>
+                <a
+                  href={song.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="me__song"
+                  key={i}
+                >
                   <span
                     className="me__dot"
                     style={{ backgroundColor: song.color }}
-                  />
-                  <div>
+                  >
+                    <FaPlay className="me__dot-play" />
+                  </span>
+                  <div className="me__song-info">
                     <p className="me__song-title">{song.title}</p>
                     <p className="me__song-artist">{song.artist}</p>
                   </div>
-                </li>
+                  <span className="me__spotify-btn">
+                    <FaSpotify className="me__spotify-icon" />
+                    Play
+                  </span>
+                </a>
               ))}
             </ul>
           </div>

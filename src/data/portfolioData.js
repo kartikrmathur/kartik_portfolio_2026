@@ -2,7 +2,7 @@ const portfolioData = {
   personalInfo: {
     name: 'Kartik "R" Mathur',
     title: 'Full Stack Developer',
-    bio: 'I’m an Full stack developer Developer with 4+ years of industry experience, building scalable and high-performance applications. I’ve worked on multiple real-world projects, focusing on modern architectures and clean, maintainable code.\n I specialize in Android development and also build backend services using Java and Spring Boot. I enjoy solving complex problems and turning them into efficient, user-friendly solutions.\n Let’s connect and explore how we can build impactful products together.',
+    bio: 'I’m a Full Stack Developer with 4+ years of industry experience, building scalable and high-performance applications. I’ve worked on multiple real-world projects, focusing on modern architectures and clean, maintainable code. I specialize in Android development and also build backend services using Java and Spring Boot. I enjoy solving complex problems and turning them into efficient, user-friendly solutions. Let’s connect and explore how we can build impactful products together',
     email: 'kartiksmathur@gmail.com',
     phone: '+91 7014208409',
     location: 'Bangalore, India',
@@ -12,14 +12,15 @@ const portfolioData = {
     resumeLink: '/resume.pdf',
   },
 
+  playlistLink: 'https://music.youtube.com/playlist?list=PLDBbIx2jI82VTmO58xnUOofwqhY1bynzP&si=Xe95tHacgKibESWY',
+
   onLoop: [
-    { title: 'Tum Hi Ho', artist: 'Arijit Singh', color: '#4A90D9' },
-    { title: 'Apna Bana Le', artist: 'Arijit Singh', color: '#34C759' },
-    { title: 'Kesariya', artist: 'Arijit Singh', color: '#B0B0B0' },
-    { title: 'Kun Faya Kun', artist: 'A.R. Rahman', color: '#F5A623' },
-    { title: 'Dil Se Re', artist: 'A.R. Rahman', color: '#9B59B6' },
-    { title: 'Kabira', artist: 'Arijit Singh', color: '#2C3E50' },
-    { title: 'Ilahi', artist: 'Arijit Singh', color: '#E74C3C' },
+    { title: 'I.O.U.', artist: 'Mike Shinoda', color: '#E74C3C', link: 'https://open.spotify.com/track/52mZ8BAZ9owJr3s0KzTX4E' },
+    { title: 'Greatest', artist: 'Eminem', color: '#4A90D9', link: 'https://open.spotify.com/track/2XTquzYQAdT1Hk78bOUwsv' },
+    { title: 'Calm Like a Bomb', artist: 'Rage Against The Machine', color: '#2C3E50', link: 'https://open.spotify.com/track/1hR0fIFK2qRG3f3RF70pb7' },
+    { title: 'This Summer', artist: 'Maroon 5', color: '#F5A623', link: 'https://open.spotify.com/track/5uVji14OWpj9HMKLXdhjAv' },
+    { title: 'Wants and Needs', artist: 'Drake ft. Lil Baby', color: '#9B59B6', link: 'https://open.spotify.com/track/65OVbaJR5O1RmwOQx0875b' },
+    { title: 'Danger (Spider)', artist: 'Offset & JID', color: '#34C759', link: 'https://open.spotify.com/track/3X6qK1LdMkSOhklwRa2ZfG' },
   ],
 
   timeline: [
@@ -36,6 +37,8 @@ const portfolioData = {
     { platform: 'github', handle: 'kartikrmathur', link: 'https://github.com/kartikrmathur' },
     { platform: 'linkedin', handle: 'kartikrmathur', link: 'https://www.linkedin.com/in/kartikrmathur/' },
     { platform: 'twitter', handle: '@mainchaaraacter', link: 'https://twitter.com/mainchaaraacter' },
+    { platform: 'MobileNo', handle: '+91 7014208409', link: 'tel:+917014208409' },
+    { platform: 'Location', handle: 'Bangalore, India', link: 'https://maps.google.com/?q=Bangalore, India' },
   ],
 
   skills: [
@@ -99,16 +102,6 @@ const portfolioData = {
     },
     {
       id: 5,
-      title: 'PupilMesh',
-      description:
-        'A Kotlin-based Android application focused on modern UI patterns and clean architecture principles.',
-      techStack: ['Kotlin', 'Android SDK', 'Jetpack', 'Material Design'],
-      githubLink: 'https://github.com/kartikrmathur/PupilMesh',
-      liveLink: 'https://github.com/kartikrmathur/PupilMesh',
-      category: 'Mobile',
-    },
-    {
-      id: 6,
       title: 'WeatherBikeRideApp',
       description:
         'An Android app that provides real-time weather data to help cyclists plan their rides with accurate forecasts.',
@@ -118,7 +111,7 @@ const portfolioData = {
       category: 'Mobile',
     },
     {
-      id: 7,
+      id: 6,
       title: 'NotesTakerApp',
       description:
         'A note-taking Android application with create, read, update, and delete functionality for managing personal notes.',
@@ -128,7 +121,7 @@ const portfolioData = {
       category: 'Mobile',
     },
     {
-      id: 8,
+      id: 7,
       title: 'Affirmations App',
       description:
         'A daily affirmation app built with Kotlin that displays motivational quotes and positive affirmations to the user.',
@@ -138,23 +131,13 @@ const portfolioData = {
       category: 'Mobile',
     },
     {
-      id: 9,
+      id: 8,
       title: 'Ferries Wheels Films',
       description:
         'A JavaScript-based web project for browsing and exploring a curated collection of films with a clean interface.',
       techStack: ['JavaScript', 'HTML', 'CSS', 'DOM API'],
       githubLink: 'https://github.com/kartikrmathur/ferries_wheels_films',
       liveLink: 'https://github.com/kartikrmathur/ferries_wheels_films',
-      category: 'Web',
-    },
-    {
-      id: 10,
-      title: 'ProgressBar.py',
-      description:
-        'A Python utility that generates animated progress bars for ad-spot tracking and visualization in the terminal.',
-      techStack: ['Python', 'CLI', 'Scripting'],
-      githubLink: 'https://github.com/kartikrmathur/ProgressBar.py',
-      liveLink: 'https://github.com/kartikrmathur/ProgressBar.py',
       category: 'Web',
     },
   ],

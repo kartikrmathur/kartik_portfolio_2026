@@ -64,6 +64,15 @@
   display: flex;
   align-items: center;
   gap: 14px;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 6px;
+  margin: -6px;
+  transition: background-color 0.2s ease;
+}
+
+.me__song:hover {
+  background-color: var(--bg-card);
 }
 
 .me__dot {
@@ -71,6 +80,32 @@
   height: 36px;
   border-radius: 8px;
   flex-shrink: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 0.2s ease;
+}
+
+.me__dot-play {
+  position: absolute;
+  font-size: 0.75rem;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.me__song:hover .me__dot {
+  filter: brightness(0.7);
+}
+
+.me__song:hover .me__dot-play {
+  opacity: 1;
+}
+
+.me__song-info {
+  flex: 1;
+  min-width: 0;
 }
 
 .me__song-title {
@@ -83,6 +118,31 @@
 .me__song-artist {
   font-size: 0.8rem;
   color: var(--text-faint);
+}
+
+.me__spotify-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #1db954;
+  background: rgba(29, 185, 84, 0.1);
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.me__spotify-icon {
+  font-size: 0.85rem;
+}
+
+.me__song:hover .me__spotify-btn {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* ===== Timeline ===== */
