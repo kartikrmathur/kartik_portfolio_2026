@@ -51,15 +51,15 @@ const Contact = () => {
     try {
       // Replace these IDs with your own from https://www.emailjs.com/
       await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        'service_1p1clar',
+        'template_nf17tq5',
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
         },
-        'YOUR_USER_ID'
+        'uhI9Odz8XhQAZvNUD'
       );
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
