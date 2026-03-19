@@ -4,7 +4,10 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import portfolioData from '../../data/portfolioData';
 import './Hero.css';
 
-const roles = ['Full Stack Developer', 'React Developer', 'Educator'];
+const roles = ['Full Stack Developer','Android Developer', 'Thinker','Achiever','Educator'];
+const getArticle = (word) => {
+  return /^[aeiou]/i.test(word) ? 'an' : 'a';
+};
 
 const Hero = () => {
   const { name, github, linkedin, twitter, resumeLink } =
@@ -49,7 +52,7 @@ const Hero = () => {
         <p className="hero__greeting mono accent">Hi, my name is</p>
         <h1 className="hero__name">{name}.</h1>
         <h2 className="hero__role">
-          I'm a <span className="accent mono">{text}</span>
+          I'm {getArticle(text)} <span className="accent mono">{text}</span>
           <span className="hero__cursor">|</span>
         </h2>
         <p className="hero__tagline">

@@ -29,10 +29,10 @@
 }
 
 .me__bio {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.8;
-  max-width: 480px;
+  line-height: 1.65;
+  max-width: 640px;
 }
 
 /* ===== Three-Column Grid ===== */
@@ -219,5 +219,11 @@
   .me__grid {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+
+  .me__bio {
+    max-width: 100%;
+    font-size: 0.95rem;
+    line-height: 1.7;
   }
 }
