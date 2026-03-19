@@ -1,50 +1,101 @@
+import { FaPlay, FaSpotify } from 'react-icons/fa';
 import portfolioData from '../../data/portfolioData';
 import './About.css';
 
-const stats = [
-  { label: 'Years Experience', value: '4+' },
-  { label: 'Projects Completed', value: '20+' }
-  // { label: 'Happy Clients', value: '10+' },
-];
+const getEndYear = (year) => {
+  if (year.includes('Present')) return 'Now';
+  const parts = year.split('—');
+  const end = (parts[1] || parts[0]).trim();
+  const match = end.match(/\d{4}/);
+  return match ? match[0] : end;
+};
 
 const About = () => {
   const { name, bio } = portfolioData.personalInfo;
-  const initials = name
+  const { onLoop, timeline, findMe } = portfolioData;
+
+  const firstName = name
     .split(' ')
-    .map((w) => w[0])
-    .join('');
+    .map((w) => w.replace(/[^a-zA-Z]/g, ''))
+    .filter((w) => w.length > 1)[0];
 
   return (
-    <section className="about section" id="about">
-      <div className="section__container">
-        <h2 className="section__heading" data-aos="fade-up">
-          About <span>Me</span>
-        </h2>
-        <p className="section__subheading" data-aos="fade-up" data-aos-delay="100">
-          Here you'll find more information about me, what I do, and my current skills
-        </p>
+    <section className="me" id="me">
+      <div className="me__container">
+        <div className="me__intro">
+          <h1 className="me__heading" data-aos="fade-up">
+            hey, i'm <em>{(firstName || 'kartik').toLowerCase()}</em>
+          </h1>
+          <p className="me__bio" data-aos="fade-up" data-aos-delay="100">
+            {bio}
+          </p>
+        </div>
 
-        <div className="about__grid">
-          <div className="about__image-col" data-aos="fade-right" data-aos-delay="200">
-            <div className="about__avatar">
-              <span>{initials}</span>
-            </div>
+        <div className="me__grid" data-aos="fade-up" data-aos-delay="200">
+          {/* On Loop */}
+          <div className="me__col">
+            <h3 className="me__col-title">On Loop</h3>
+            <ul className="me__list">
+              {onLoop.map((song, i) => (
+                <a
+                  href={song.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="me__song"
+                  key={i}
+                >
+                  <span
+                    className="me__dot"
+                    style={{ backgroundColor: song.color }}
+                  >
+                    <FaPlay className="me__dot-play" />
+                  </span>
+                  <div className="me__song-info">
+                    <p className="me__song-title">{song.title}</p>
+                    <p className="me__song-artist">{song.artist}</p>
+                  </div>
+                  <span className="me__spotify-btn">
+                    <FaSpotify className="me__spotify-icon" />
+                    Play
+                  </span>
+                </a>
+              ))}
+            </ul>
           </div>
 
-          <div className="about__text-col" data-aos="fade-left" data-aos-delay="300">
-            <h3 className="about__subtitle">
-              Get to know me!
-            </h3>
-            <p className="about__bio">{bio}</p>
-
-            <div className="about__stats">
-              {stats.map((stat, i) => (
-                <div className="about__stat" key={i} data-aos="zoom-in" data-aos-delay={400 + i * 100}>
-                  <h4 className="about__stat-value accent">{stat.value}</h4>
-                  <p className="about__stat-label">{stat.label}</p>
-                </div>
+          {/* Timeline */}
+          <div className="me__col">
+            <h3 className="me__col-title">Timeline</h3>
+            <ul className="me__list">
+              {timeline.map((item, i) => (
+                <li className="me__timeline-item" key={i}>
+                  <p className="me__timeline-company">{item.company}</p>
+                  <p className="me__timeline-role">
+                    {item.role} &mdash; {getEndYear(item.year)}
+                  </p>
+                </li>
               ))}
-            </div>
+            </ul>
+          </div>
+
+          {/* Find Me */}
+          <div className="me__col">
+            <h3 className="me__col-title">Find Me</h3>
+            <ul className="me__list">
+              {findMe.map((item, i) => (
+                <li className="me__find-item" key={i}>
+                  <span className="me__find-platform">{item.platform}</span>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="me__find-handle"
+                  >
+                    {item.handle}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
