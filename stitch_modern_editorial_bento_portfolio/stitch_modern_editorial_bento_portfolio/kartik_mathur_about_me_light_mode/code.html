@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kartik Mathur — About</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#d0bcff",
+                        "tertiary": "#6750a4",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#21005d",
+                        "outline-variant": "#c9c5d0",
+                        "on-surface": "#1d1b20",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fef7ff",
+                        "on-secondary-container": "#1d192b",
+                        "on-primary-fixed-variant": "#4f378b",
+                        "on-secondary-fixed": "#1d192b",
+                        "on-tertiary-container": "#31111d",
+                        "tertiary-container": "#ffd8e4",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#633b48",
+                        "secondary-fixed-dim": "#ccc2dc",
+                        "surface-bright": "#fef7ff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#e8def8",
+                        "on-background": "#1d1b20",
+                        "on-surface-variant": "#49454f",
+                        "inverse-primary": "#d0bcff",
+                        "on-secondary-fixed-variant": "#4a4458",
+                        "on-error-container": "#410002",
+                        "background": "#fdf8ff",
+                        "surface-container": "#f3edf7",
+                        "surface-tint": "#6750a4",
+                        "surface-variant": "#e7e0eb",
+                        "secondary-container": "#e8def8",
+                        "on-tertiary-fixed": "#31111d",
+                        "inverse-surface": "#322f35",
+                        "on-primary-fixed": "#21005d",
+                        "surface-container-high": "#ece6f0",
+                        "secondary": "#625b71",
+                        "surface-container-highest": "#e6e1e9",
+                        "primary-container": "#eaddff",
+                        "primary-fixed": "#eaddff",
+                        "surface-dim": "#ded8e1",
+                        "tertiary-fixed": "#ffd8e4",
+                        "error-container": "#f9dedc",
+                        "inverse-on-surface": "#f5eff7",
+                        "outline": "#79747e",
+                        "primary": "#6750a4",
+                        "glass-bg": "rgba(255, 255, 255, 0.7)",
+                        "tertiary-fixed-dim": "#efb8c8",
+                        "surface-container-low": "#f7f2fa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "unit": "8px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Instrument Serif"],
+                        "label-sm": ["Geist"],
+                        "headline-lg-mobile": ["Instrument Serif"],
+                        "label-md": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "body-md": ["Geist"],
+                        "headline-md": ["Instrument Serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fdf8ff;
+            color: #1d1b20;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(121, 116, 126, 0.15);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(103, 80, 164, 0.2);
+        }
+        .timeline-line {
+            background: linear-gradient(180deg, transparent 0%, #c9c5d0 20%, #c9c5d0 80%, transparent 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation -->
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 rounded-full px-6 py-3 w-max flex items-center gap-8 z-50 glass-panel shadow-2xl shadow-primary/5">
+<div class="font-headline-lg text-[24px] font-bold text-on-surface">Kartik Mathur</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300" href="#">Me</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300" href="#">Projects</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors scale-95 active:scale-90" data-icon="dark_mode">dark_mode</button>
+</nav>
+<!-- Background Decoration -->
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-tertiary/5 blur-[150px]"></div>
+</div>
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-32 space-y-section-gap">
+<!-- Hero Section -->
+<section class="flex flex-col md:flex-row gap-12 items-end">
+<div class="flex-1 space-y-6">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-[#4CAF50] animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Available for Architecture Consulting</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface leading-tight">
+                    Engineering <span class="italic text-primary">resilience</span> through architectural <span class="font-bold">precision</span>.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    I am a systems architect based in New Delhi, specializing in distributed infrastructure and cloud-native ecosystems. My work bridges the gap between high-level abstraction and low-level performance.
+                </p>
+</div>
+<div class="w-full md:w-1/3 aspect-square glass-panel rounded-2xl overflow-hidden group">
+<img class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" data-alt="A professional, high-contrast black and white portrait of a South Asian man with glasses, looking thoughtfully into the distance. The lighting is soft but dramatic, casting subtle shadows that define his features. He is set against a clean, minimal white studio background that aligns with a high-end editorial aesthetic. The overall mood is focused, intelligent, and calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiP8Wkm0IsiPjTXTwnsrzHBYSTXNqIqMILVB7zgXovL9_fGzBXmmZoT9lpQV5IpnuyEwxYyrkvcM3G-RQfDdCkZUb5JQi12097YaCtbb1gphqFBXWFMqegMFtFzI6fs-sohZ2LZ60ggIIuZrE89FghCWrDb51g76UfRpn5mGCwX7kBE0yiCnCtBMepEoPIyZ1q_f44rXfsRYK5aX3hToTXCu9PJj3-AEAAxt8A8gaTb5WQTTbjiEFKCXs6nMw2YXmhtmOYp2FROAo"/>
+</div>
+</section>
+<!-- Mastery Grid (Bento) -->
+<section class="space-y-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">Core Mastery</h2>
+<p class="font-label-md text-label-md text-on-surface-variant max-w-xs">Technical domains where I define strategy and execute at scale.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="md:col-span-2 glass-panel p-8 rounded-2xl flex flex-col justify-between group hover:border-primary/40 transition-all duration-500">
+<div class="space-y-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="cloud_done">cloud_done</span>
+<h3 class="font-headline-md text-[24px] text-on-surface">Distributed Systems</h3>
+<p class="text-on-surface-variant text-body-md">Designing fault-tolerant microservices and event-driven architectures that scale with millions of concurrent requests.</p>
+</div>
+<div class="mt-8 flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-medium">Kubernetes</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-medium">gRPC</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-medium">Kafka</span>
+</div>
+</div>
+<div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group hover:border-primary/40 transition-all duration-500">
+<div class="space-y-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="security">security</span>
+<h3 class="font-headline-md text-[24px] text-on-surface">Zero Trust</h3>
+<p class="text-on-surface-variant text-body-md">Hardening infrastructure through identity-first security and cryptographic integrity.</p>
+</div>
+</div>
+<div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group hover:border-primary/40 transition-all duration-500">
+<div class="space-y-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="speed">speed</span>
+<h3 class="font-headline-md text-[24px] text-on-surface">Observability</h3>
+<p class="text-on-surface-variant text-body-md">Implementing deep-tracing and real-time telemetry for high-stakes environments.</p>
+</div>
+</div>
+<div class="md:col-span-1 glass-panel p-8 rounded-2xl flex flex-col items-center justify-center text-center group bg-primary-container/20 border-primary/20">
+<span class="font-headline-lg text-[48px] text-primary mb-2">99.99%</span>
+<p class="text-on-primary-container font-label-md">Uptime SLA Target</p>
+</div>
+<div class="md:col-span-3 glass-panel p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-center group overflow-hidden">
+<div class="flex-1 space-y-4">
+<h3 class="font-headline-md text-[24px] text-on-surface">The High-Performance Stack</h3>
+<p class="text-on-surface-variant text-body-md">My philosophy revolves around reducing friction. I lean into Go for its concurrency, Rust for memory safety, and Terraform for deterministic infrastructure as code.</p>
+</div>
+<div class="w-full md:w-48 h-32 flex items-center justify-center gap-4">
+<!-- Visual representation of "stack" via abstract shapes -->
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center"><span class="material-symbols-outlined text-primary" data-icon="code">code</span></div>
+<div class="w-12 h-16 bg-primary/20 rounded-lg flex items-center justify-center"><span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span></div>
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center"><span class="material-symbols-outlined text-primary" data-icon="data_object">data_object</span></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Career Timeline -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<div class="md:col-span-4">
+<h2 class="font-headline-md text-headline-md text-on-surface sticky top-32">Experience <br/><span class="italic text-on-surface-variant">&amp; Legacy</span></h2>
+</div>
+<div class="md:col-span-8 relative">
+<div class="absolute left-0 top-0 bottom-0 w-[1px] timeline-line hidden md:block"></div>
+<div class="space-y-16 md:pl-12">
+<!-- Experience Item -->
+<div class="relative group">
+<div class="hidden md:block absolute -left-[54px] top-1 w-3 h-3 rounded-full border-2 border-primary bg-background z-10 group-hover:scale-125 transition-transform"></div>
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<h3 class="font-body-lg font-bold text-on-surface">Principal Cloud Architect</h3>
+<span class="font-label-sm text-on-surface-variant">2021 — PRESENT</span>
+</div>
+<p class="text-primary font-label-md">Nebula Dynamics</p>
+<p class="text-on-surface-variant text-body-md leading-relaxed">Leading the migration of legacy monoliths to a global service mesh. Orchestrating a team of 15 engineers to maintain sub-100ms latency across 4 continents. Spearheaded the implementation of automated canary deployments.</p>
+</div>
+</div>
+<!-- Experience Item -->
+<div class="relative group">
+<div class="hidden md:block absolute -left-[54px] top-1 w-3 h-3 rounded-full border-2 border-outline bg-background z-10 group-hover:border-primary transition-colors"></div>
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<h3 class="font-body-lg font-bold text-on-surface">Senior Systems Engineer</h3>
+<span class="font-label-sm text-on-surface-variant">2018 — 2021</span>
+</div>
+<p class="text-primary font-label-md">Vector Systems</p>
+<p class="text-on-surface-variant text-body-md leading-relaxed">Designed and built a custom CI/CD pipeline that reduced build times by 65%. Implemented a centralized logging and monitoring system using the ELK stack, processing 2TB of logs daily.</p>
+</div>
+</div>
+<!-- Experience Item -->
+<div class="relative group">
+<div class="hidden md:block absolute -left-[54px] top-1 w-3 h-3 rounded-full border-2 border-outline bg-background z-10 group-hover:border-primary transition-colors"></div>
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<h3 class="font-body-lg font-bold text-on-surface">Backend Developer</h3>
+<span class="font-label-sm text-on-surface-variant">2015 — 2018</span>
+</div>
+<p class="text-primary font-label-md">Flux Media</p>
+<p class="text-on-surface-variant text-body-md leading-relaxed">Developed core API services for high-traffic media platforms. Focused on database optimization and caching strategies using Redis and PostgreSQL. Early adopter of Docker for containerized development environments.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- On Loop Section -->
+<section class="space-y-12">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="headphones">headphones</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">On Loop</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<!-- Track 1 -->
+<div class="space-y-4 group">
+<div class="aspect-square glass-panel rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A minimalist album cover art with a high-contrast white background and a single abstract violet geometric shape floating in the center. The style is clean, modern, and high-fidelity, suggesting an electronic or ambient music genre. The image is bright and airy, with soft shadows and a sense of futuristic calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBWt1v05rH5bMkKaMGPzuGE3utKml4dmDf3Dq7dpD0-9uV1MBfKR2M2MKPPW3N2_chO_zu7phuk04Q9mWMh5tVQIXoXHu3wtH3qUBKdQ2Rfy01CXw0LvlaYJR9WJgORuU4JlchORzY6J9B17o3wbgyF0OvV4vqPO89hPQ8SsQP0VUk11JJsTFej8mi47_R9gTFgfaJcDVUb7SnE_0dWf0-CvZu7EeDXLfqzFtZ8_fEU8kmSW3XVVzDe1Xpc_tbVFcMisCVzXgn10I"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-white/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-on-surface text-4xl" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+</div>
+</div>
+<div>
+<p class="font-body-md font-bold text-on-surface">Ghosts of Progress</p>
+<p class="font-label-sm text-on-surface-variant">TIMELAPSE</p>
+</div>
+</div>
+<!-- Track 2 -->
+<div class="space-y-4 group">
+<div class="aspect-square glass-panel rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Modern album art featuring a bright, high-key photography of a sleek, white mechanical watch mechanism under macro lens. The metal reflects soft studio lighting, creating a high-contrast, clean light-mode aesthetic. The composition is focused on precision engineering and architectural detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtYkq3tmcISvi6S9c-PTsUWcVY7bA0oo8GxNsVjAz7-4fO28RREaLsyF-5h_zTYUE9WjWfCpZ6pqP9d6DdgtuDX3P_I4mIK3zDU40pDvq94XMtFdUvtEQngCkdMCOrTTUzS9-QiZGF4JBloVviDd8KDLWST-e6xuqo66O32YAX0Tzj-vnnpvw7RApfkzCMQB93_NVMEAksPvtYculg-pPHR34m1jL9eK7_-FGH2LquV7OIcS4LtmfeCsz8rmCBScC_Q7gWb_jv5PA"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-white/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-on-surface text-4xl" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+</div>
+</div>
+<div>
+<p class="font-body-md font-bold text-on-surface">Architecture of Void</p>
+<p class="font-label-sm text-on-surface-variant">LUNA FLOW</p>
+</div>
+</div>
+<!-- Track 3 -->
+<div class="space-y-4 group">
+<div class="aspect-square glass-panel rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A bright and airy abstract art piece featuring flowing gradients of pale violet and soft white. The textures are smooth and liquid-like, evoking a sense of calm and clarity. High-contrast lighting highlights the gentle curves of the design, maintaining a professional and minimal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrmv4B9KrvQKFEa6E1v6panOUhqAXOhWZctfeG9yr6fTP_4Sm66R5zRv24T7QJBMrrOxd0bunRV7gYn2avnXiXm1eBCubkWPLcQ3nYnjnbOxvH2n8Wjziqq2RHvtpl2Pl5X8H_r6un76h5gHaeY4iozE28jKD8I6QvnbCo80W0Kvrr0LxK5JhUw0btznFurmVD57-sdUjImg-MQE-wZ4PMoWLe6iE1wHGPNCCM-ebf5W_K9BChWOqdq4uxBMTPEE0CqqLLU9meNbk"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-white/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-on-surface text-4xl" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+</div>
+</div>
+<div>
+<p class="font-body-md font-bold text-on-surface">Data Stream</p>
+<p class="font-label-sm text-on-surface-variant">BINARY DREAMS</p>
+</div>
+</div>
+<!-- Track 4 -->
+<div class="space-y-4 group">
+<div class="aspect-square glass-panel rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A clean, minimalist image of a vast, white arctic landscape under a clear blue-white sky. The horizon is sharp and high-contrast, creating a sense of infinite space and silence. The image is bright, high-key, and perfectly captures a mood of sophisticated calm and technical perfection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApwZbeM6GguSp1IEyQKc7cfNbxa9bh8sz2pY2yG5R_EAFdn47mFYmVKpB4OKPC_LgQ9ogUXxHNiKLbRfWAkjAVVnm8FTzlKxuhEF9nDNxsLPdChdxY6wNchYqFT6HUCxP2nEA2CI-SoGng3AuAx8q7Qo3P3C9d42rmUGKuaFiKYG1fCQLrqN5kUH8iUQGNNt6tkrxqrQxfauzbeMaB_Ai-9Qk8WPvR8Qxb6TI9i_qZDzDuzxfyHxYZYhqYNXJuAD3Is8P075gyG4s"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-white/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-on-surface text-4xl" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+</div>
+</div>
+<div>
+<p class="font-body-md font-bold text-on-surface">Silent Systems</p>
+<p class="font-label-sm text-on-surface-variant">THE ARCHITECT</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA / Contact -->
+<section class="glass-panel p-12 md:p-24 rounded-3xl text-center space-y-8 relative overflow-hidden">
+
+<div class="relative z-10 space-y-6">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Let's build <span class="italic">resilient</span> futures.</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">Currently accepting select architectural consulting projects for Q3 2024. Reach out for a system audit or to discuss your infrastructure strategy.</p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6 pt-4">
+<a class="px-8 py-4 rounded-full bg-primary text-on-primary font-label-md hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 scale-100 active:scale-95" href="mailto:contact@kartik.dev">Send an Inquiry</a>
+<a class="text-on-surface font-label-md border-b-2 border-outline-variant hover:border-primary transition-colors py-1" href="#">Download CV</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-12 pb-8 border-t border-outline-variant/30 bg-background">
+<div class="max-w-7xl mx-auto px-margin_desktop grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+<div class="font-headline-lg text-[24px] font-bold text-on-surface">Kartik Mathur</div>
+<div class="flex justify-center gap-8">
+<a class="text-on-surface-variant font-body-md hover:text-tertiary transition-colors" href="#">LinkedIn</a>
+<a class="text-on-surface-variant font-body-md hover:text-tertiary transition-colors" href="#">GitHub</a>
+<a class="text-on-surface-variant font-body-md hover:text-tertiary transition-colors" href="#">Twitter</a>
+</div>
+<div class="text-right text-on-surface-variant text-body-md">
+                © 2024 Kartik Mathur. Crafted with precision.
+            </div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for following elements with mouse light effect
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            document.documentElement.style.setProperty('--mouse-x', `${x}px`);
+            document.documentElement.style.setProperty('--mouse-y', `${y}px`);
+        });
+    </script>
+</body></html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About | Kartik Mathur</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#233144",
+                    "tertiary-fixed": "#e9ddff",
+                    "on-surface": "#e5e1e4",
+                    "on-secondary-container": "#abb9d1",
+                    "on-tertiary": "#37265e",
+                    "on-background": "#e5e1e4",
+                    "surface-container-high": "#2a2a2c",
+                    "inverse-on-surface": "#313032",
+                    "on-tertiary-fixed": "#210f48",
+                    "on-primary-container": "#340080",
+                    "primary-fixed-dim": "#d0bcff",
+                    "outline-variant": "rgba(73, 68, 84, 0.3)",
+                    "tertiary-container": "#9987c6",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "surface-container-low": "#1c1b1d",
+                    "on-primary-fixed": "#23005c",
+                    "inverse-surface": "#e5e1e4",
+                    "surface": "#131315",
+                    "background": "#131315",
+                    "surface-dim": "#131315",
+                    "primary-container": "#a078ff",
+                    "secondary-fixed": "#d5e3fc",
+                    "on-error": "#690005",
+                    "on-surface-variant": "#CBC3D7",
+                    "on-primary-fixed-variant": "#5516be",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "surface-variant": "#353437",
+                    "surface-bright": "#39393b",
+                    "on-tertiary-fixed-variant": "#4d3d76",
+                    "primary": "#d0bcff",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "glass-bg": "rgba(255, 255, 255, 0.03)",
+                    "surface-tint": "#d0bcff",
+                    "surface-container": "#201f22",
+                    "secondary": "#b9c7df",
+                    "surface-container-lowest": "#0e0e10",
+                    "on-tertiary-container": "#301f57",
+                    "surface-container-highest": "#353437",
+                    "secondary-container": "#3c4a5e",
+                    "inverse-primary": "#6d3bd7",
+                    "primary-fixed": "#e9ddff",
+                    "tertiary": "#d0bcff",
+                    "on-error-container": "#ffdad6",
+                    "error": "#ffb4ab",
+                    "on-primary": "#3c0091",
+                    "outline": "#958ea0",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#3a485b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "section-gap": "120px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "unit": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Geist"],
+                    "headline-md": ["Instrument Serif"],
+                    "headline-lg": ["Instrument Serif"],
+                    "label-sm": ["Geist"],
+                    "label-md": ["Geist"],
+                    "headline-lg-mobile": ["Instrument Serif"],
+                    "body-lg": ["Geist"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131315;
+            color: #e5e1e4;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(73, 68, 84, 0.3);
+        }
+        .grayscale-filter {
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+        }
+        .grayscale-filter:hover {
+            filter: grayscale(0%);
+        }
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #d0bcff;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(208, 188, 255, 0.7);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(208, 188, 255, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(208, 188, 255, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(208, 188, 255, 0); }
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] md:w-fit rounded-full bg-glass-bg backdrop-blur-xl border border-outline-variant/30 shadow-sm flex items-center justify-between px-6 py-3 gap-8 z-50">
+<div class="font-headline-md text-headline-md text-on-surface">Kartik Mathur</div>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md active:scale-95 transition-transform duration-200" href="#">Projects</a>
+<a class="text-primary font-bold hover:text-primary transition-colors duration-300 font-label-md text-label-md active:scale-95 transition-transform duration-200" href="#">Me</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md active:scale-95 transition-transform duration-200" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary active:scale-95 transition-transform" data-icon="dark_mode">dark_mode</button>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-32">
+<!-- Hero Section -->
+<section class="mb-section-gap grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
+<div class="md:col-span-8">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4 block">Introduction</span>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-8 italic">
+                    Engineering quietude into <br class="hidden md:block"/> complex systems.
+                </h1>
+<div class="max-w-2xl space-y-6 text-on-surface-variant font-body-lg text-body-lg">
+<p>
+                        I am a software engineer focused on the intersection of technical performance and minimalist aesthetics. My work is driven by the philosophy that high-stakes engineering doesn't need to be loud; it needs to be resilient, predictable, and invisible.
+                    </p>
+<p>
+                        With a deep background in distributed systems and systems programming, I spend my time crafting obsidian-like architectures—deep, stable, and polished to a mirror finish. Whether it's optimizing a Rust backend or refining a component library, my goal is always digital quietude.
+                    </p>
+</div>
+</div>
+<div class="md:col-span-4 flex flex-col items-center md:items-end">
+<div class="w-full aspect-[4/5] glass-card rounded-xl overflow-hidden grayscale-filter relative mb-4">
+<img alt="Kartik Mathur" class="w-full h-full object-cover" data-alt="A cinematic, high-contrast portrait of a young man with a focused expression, set against a dark, obsidian-textured background. The lighting is dramatic and moody, with soft violet highlights reflecting off his features, consistent with a minimalist and sophisticated digital aesthetic. The overall mood is one of calm authority and futuristic elegance, perfectly matching the Obsidian Digital design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzGHUAPcufZy3r7_yAijJSMkF4QrtbdVTKZbiUvq0W0-7rK8gJkGLku5zaS1vEW7ONE1aN1_m5hPLtexov1qHknIt8xb267u2RR9QMDX41-Upg5E-qN9WQVdurbh35tKNzqzWMeSXkGvRHSmxZyjKygeK2Lb-r3mfE24p73COplOlaJQ1WVb7cU6gHMEMrRLW4okKYCnQeLNDG4uz10mkfq2tGvdX23dFo3uOrU7kzCiTxw_5BwkRzEli1PF4vt3dq1c6nNOxQ7Js"/>
+<div class="absolute bottom-4 left-4 flex items-center gap-2 px-3 py-1 bg-surface/80 backdrop-blur-md rounded-full border border-outline-variant/30">
+<span class="pulse-dot"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Available for projects</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Career Timeline -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-4 mb-16">
+<h2 class="font-headline-md text-headline-md text-on-surface italic">Career Timeline</h2>
+<div class="h-[1px] flex-grow bg-outline-variant/10"></div>
+</div>
+<div class="relative pl-8 md:pl-0">
+<!-- Vertical Line -->
+<div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-[1px] bg-outline-variant/30 -translate-x-1/2"></div>
+<div class="space-y-24">
+<!-- Item 1 -->
+<div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="md:text-right md:pr-12 order-2 md:order-1">
+<h3 class="font-body-lg text-body-lg text-primary font-bold">Lead Systems Architect</h3>
+<p class="text-on-surface-variant mb-2">Nebula Stream • 2022 — Present</p>
+<p class="text-on-surface-variant/80">Orchestrating high-throughput data pipelines using Rust and Kubernetes. Focused on 99.99% uptime and sub-50ms latency for global edge computing.</p>
+</div>
+<div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-surface z-10"></div>
+<div class="order-1 md:order-2 md:pl-12">
+<span class="font-headline-lg text-headline-lg text-outline-variant/20 italic">01</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="md:text-right md:pr-12 order-1">
+<span class="font-headline-lg text-headline-lg text-outline-variant/20 italic">02</span>
+</div>
+<div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-on-surface-variant border-4 border-surface z-10"></div>
+<div class="md:pl-12 order-2">
+<h3 class="font-body-lg text-body-lg text-primary font-bold">Full Stack Engineer</h3>
+<p class="text-on-surface-variant mb-2">Prism Logic • 2020 — 2022</p>
+<p class="text-on-surface-variant/80">Developed responsive web applications for financial analytics. Implemented a custom design system that reduced front-end shipping time by 40%.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="md:text-right md:pr-12 order-2 md:order-1">
+<h3 class="font-body-lg text-body-lg text-primary font-bold">Software Intern</h3>
+<p class="text-on-surface-variant mb-2">Vortex Data • 2019 — 2020</p>
+<p class="text-on-surface-variant/80">Contributed to core ETL processes using Python and AWS. Optimized SQL queries resulting in a 30% reduction in cloud compute costs.</p>
+</div>
+<div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-on-surface-variant border-4 border-surface z-10"></div>
+<div class="order-1 md:order-2 md:pl-12">
+<span class="font-headline-lg text-headline-lg text-outline-variant/20 italic">03</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mastery Grid -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-4 mb-16">
+<h2 class="font-headline-md text-headline-md text-on-surface italic">Mastery</h2>
+<div class="h-[1px] flex-grow bg-outline-variant/10"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Skill Card -->
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 group hover:border-primary/50 transition-all duration-500">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors duration-500" data-icon="terminal">terminal</span>
+<span class="font-label-md text-label-md text-on-surface">Rust</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 group hover:border-primary/50 transition-all duration-500">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors duration-500" data-icon="javascript">javascript</span>
+<span class="font-label-md text-label-md text-on-surface">TypeScript</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 group hover:border-primary/50 transition-all duration-500">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors duration-500" data-icon="cloud">cloud</span>
+<span class="font-label-md text-label-md text-on-surface">AWS</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 group hover:border-primary/50 transition-all duration-500">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors duration-500" data-icon="database">database</span>
+<span class="font-label-md text-label-md text-on-surface">PostgreSQL</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 group hover:border-primary/50 transition-all duration-500">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors duration-500" data-icon="deployed_code">deployed_code</span>
+<span class="font-label-md text-label-md text-on-surface">Kubernetes</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 group hover:border-primary/50 transition-all duration-500">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors duration-500" data-icon="architecture">architecture</span>
+<span class="font-label-md text-label-md text-on-surface">System Design</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 group hover:border-primary/50 transition-all duration-500">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors duration-500" data-icon="brush">brush</span>
+<span class="font-label-md text-label-md text-on-surface">UI/UX Strategy</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 group hover:border-primary/50 transition-all duration-500">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors duration-500" data-icon="bolt">bolt</span>
+<span class="font-label-md text-label-md text-on-surface">Optimization</span>
+</div>
+</div>
+</section>
+<!-- On Loop Music Section -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-4 mb-16">
+<h2 class="font-headline-md text-headline-md text-on-surface italic">On Loop</h2>
+<div class="h-[1px] flex-grow bg-outline-variant/10"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Music Card 1 -->
+<div class="glass-card p-4 rounded-xl flex items-center gap-6 group cursor-pointer hover:bg-white/5 transition-all duration-300">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 grayscale-filter group-hover:grayscale-0 transition-all duration-500">
+<img alt="Album Art" class="w-full h-full object-cover" data-alt="A minimalist album cover art featuring abstract, geometric patterns in shades of deep charcoal and ethereal violet. The style is moody and electronic, evoking a sense of 'Silent Echoes' with soft blurs and sharp line work. High-end digital art aesthetic with a focus on shadow and light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8XVshfJI4GlDksPjC2jr6GOEOaUu_Z8YYteT8qgmcwsg2jMlHFEmH5wqdrWw_uSNX46ANWFCcll-HhqAVIOlvxjVsznoeTvipFsZUPcYl-xtnXLfCSrvv8nRBsr62bC9VmKVNGdwMUChsR1q2Mf-EIFea2p49qmKm2FoxD4nPzZSStFgE2GpjHHdzbNq-_Kzcw5X8I151-auB4TxzhQ7HEzb_YtF-xAeSxiQyZ-IGONEy8pxjpl8Ql7zHgpNZddgxcd9CH5UwG_I"/>
+</div>
+<div>
+<h4 class="font-body-md text-body-md text-on-surface font-bold">Silent Echoes</h4>
+<p class="text-label-sm text-label-sm text-on-surface-variant">Lorn</p>
+</div>
+</div>
+<!-- Music Card 2 -->
+<div class="glass-card p-4 rounded-xl flex items-center gap-6 group cursor-pointer hover:bg-white/5 transition-all duration-300">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 grayscale-filter group-hover:grayscale-0 transition-all duration-500">
+<img alt="Album Art" class="w-full h-full object-cover" data-alt="Abstract atmospheric photography with a dark, textured feel. Subtle grains and organic shapes merge in a palette of obsidian black and muted silver. The image captures the essence of Burial's 'Untrue' with an urban, nocturnal vibe, minimal and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1GhiQKB5_rtWQiAXO8Hsf362rAkvca1xfiCR8c2Vjapyx8tA-q5DpNR0PZ-cS6qGcTtwqhLibb--Pgzg7_Yg8MD49pSuEmbW7wzjUfhqZOVYak1CKSlz8L0HPvPYwGEQU8xZLx7sQy775yYrz5AnyST07z2rrtBjmxAia_KeFxZq__ov46hXikmKf-6GTq8NWPr7YVvNi9_tF_rQWsd0N_ZDCls1dspYIVdugQ-nCPRaCVcpUyI9Nn8sHYd6W-fP6UZ0BaXd595o"/>
+</div>
+<div>
+<h4 class="font-body-md text-body-md text-on-surface font-bold">Untrue</h4>
+<p class="text-label-sm text-label-sm text-on-surface-variant">Burial</p>
+</div>
+</div>
+<!-- Music Card 3 -->
+<div class="glass-card p-4 rounded-xl flex items-center gap-6 group cursor-pointer hover:bg-white/5 transition-all duration-300">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 grayscale-filter group-hover:grayscale-0 transition-all duration-500">
+<img alt="Album Art" class="w-full h-full object-cover" data-alt="Hyper-modern digital visualization of sound waves as glowing violet threads in a black void. The composition is clean, centered, and high-tech, representing ambient electronic music. Polished surfaces and sharp focus create a sense of digital clarity and quietude." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMa9C7ruvwheiGIURdLGPhPDIk8Bd9k8aI-VFR5y_qMuxcguHeXjNO9Vz0bZ0iNfj2JAJXyTe0cKHRygYrK0CMgi-T3-FUtQI8hyJoDAq0djKMXoRltU5dvvANpzMKfY9fu6yIdiXkBcH3B03GYE0tvBtFoycVhjYvGisIjXvgKlY5SQo3sYi9zWKJ96RzF_zOnFRnygaHNVoN1PSB_viqbws420cw958VcAM-ksoC0qhxKX7cPM90zeY-cMlmHmQSvVHSFGK-MNY"/>
+</div>
+<div>
+<h4 class="font-body-md text-body-md text-on-surface font-bold">Ambient 1</h4>
+<p class="text-label-sm text-label-sm text-on-surface-variant">Brian Eno</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap border-t border-outline-variant/10 bg-transparent">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="font-headline-md text-headline-md text-on-surface">Kartik Mathur</div>
+<div class="text-on-surface-variant font-body-md text-body-md">
+                © 2024 Kartik Mathur. Built for resilience.
+            </div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md hover:opacity-80 transition-opacity" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md hover:opacity-80 transition-opacity" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md hover:opacity-80 transition-opacity" href="#">X</a>
+</div>
+</div>
+</footer>
+<!-- Atmosphere Micro-interactions -->
+<script>
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+<style>
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(208, 188, 255, 0.05), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+    </style>
+</body></html>

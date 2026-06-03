@@ -1,95 +1,76 @@
-import { useState, useEffect } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import MaterialIcon from '../MaterialIcon/MaterialIcon';
 import portfolioData from '../../data/portfolioData';
-import './Hero.css';
 
-const roles = ['Full Stack Developer','Android Developer', 'Thinker','Achiever','Educator'];
-const getArticle = (word) => {
-  return /^[aeiou]/i.test(word) ? 'an' : 'a';
-};
+const stats = [
+  { label: '01 // EXPERIENCE', value: `${portfolioData.personalInfo.yearsExperience} YOE` },
+  { label: '02 // REACH', value: '125M+ Users' },
+  { label: '03 // STACK RATIO', value: '40:60 Mob/BE' },
+  { label: '04 // THROUGHPUT', value: '500K+ Req/s' },
+];
 
 const Hero = () => {
-  const { name, github, linkedin, twitter, resumeLink } =
-    portfolioData.personalInfo;
-
-  const [text, setText] = useState('');
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const currentRole = roles[roleIndex];
-
-    const timeout = setTimeout(
-      () => {
-        if (!isDeleting) {
-          setText(currentRole.substring(0, charIndex + 1));
-          setCharIndex((prev) => prev + 1);
-
-          if (charIndex + 1 === currentRole.length) {
-            setTimeout(() => setIsDeleting(true), 1500);
-          }
-        } else {
-          setText(currentRole.substring(0, charIndex - 1));
-          setCharIndex((prev) => prev - 1);
-
-          if (charIndex - 1 === 0) {
-            setIsDeleting(false);
-            setRoleIndex((prev) => (prev + 1) % roles.length);
-          }
-        }
-      },
-      isDeleting ? 50 : 100
-    );
-
-    return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, roleIndex]);
+  const { title, currentCompany, tagline } = portfolioData.personalInfo;
 
   return (
-    <section className="hero" id="hero">
-      <div className="hero__content">
-        <p className="hero__greeting mono accent">Hi, my name is</p>
-        <h1 className="hero__name">{name}.</h1>
-        <h2 className="hero__role">
-          I'm {getArticle(text)} <span className="accent mono">{text}</span>
-          <span className="hero__cursor">|</span>
-        </h2>
-        <p className="hero__tagline">
-          I build exceptional digital experiences that live on the web.
+    <section
+      className="reveal relative flex min-h-[85vh] flex-col justify-center code-grid"
+      id="hero"
+    >
+      <div className="absolute top-1/4 right-0 -z-10 h-[500px] w-[500px] rounded-full bg-primary-container/5 blur-[120px]" />
+
+      <div className="max-w-4xl space-y-gutter">
+        <div className="inline-flex items-center gap-2 rounded-full border border-outline-variant/20 bg-surface-container-high px-3 py-1">
+          <span className="h-2 w-2 animate-pulse rounded-full bg-primary-container" aria-hidden="true" />
+          <span className="font-mono text-label-caps text-on-surface-variant">
+            Available for Senior Systems &amp; Mobile Roles
+          </span>
+        </div>
+
+        <h1 className="font-display text-display-lg-mobile leading-tight text-on-surface md:text-display-lg">
+          {title} &amp;{' '}
+          <span className="text-primary-container">Lead Android Engineer</span>
+        </h1>
+
+        <p className="max-w-2xl font-mono text-body-lg text-on-surface-variant">
+          {tagline} Currently at {currentCompany}, specializing in microservices,
+          reactive backends, and end-to-end system integrity.
         </p>
 
-        <div className="hero__cta">
+        <div className="flex flex-wrap gap-gutter pt-4">
           <ScrollLink
             to="projects"
-            smooth={true}
+            smooth
             duration={500}
-            offset={-70}
-            className="hero__btn hero__btn--primary"
+            offset={-90}
+            className="technical-glow flex cursor-pointer items-center gap-2 rounded-lg bg-primary-container px-8 py-4 font-mono text-label-caps text-on-primary transition-all hover:-translate-y-0.5 active:scale-95"
           >
             View Projects
+            <MaterialIcon name="arrow_forward" />
           </ScrollLink>
-          <a
-            href={resumeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hero__btn hero__btn--secondary"
+          <ScrollLink
+            to="contact"
+            smooth
+            duration={500}
+            offset={-90}
+            className="cursor-pointer rounded-lg border border-outline px-8 py-4 font-mono text-label-caps text-on-surface transition-all hover:bg-surface-variant/20 active:scale-95"
           >
-            Download Resume
-          </a>
+            Let&apos;s Connect
+          </ScrollLink>
         </div>
+      </div>
 
-        <div className="hero__socials">
-          <a href={github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <FaGithub />
-          </a>
-          <a href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <FaLinkedin />
-          </a>
-          <a href={twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <FaTwitter />
-          </a>
-        </div>
+      <div className="mt-section-gap grid grid-cols-2 gap-gutter md:grid-cols-4">
+        {stats.map((stat) => (
+          <div key={stat.label} className="space-y-2">
+            <span className="font-mono text-label-caps text-primary-container">
+              {stat.label}
+            </span>
+            <div className="font-display text-headline-lg-mobile text-on-surface md:text-headline-lg">
+              {stat.value}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

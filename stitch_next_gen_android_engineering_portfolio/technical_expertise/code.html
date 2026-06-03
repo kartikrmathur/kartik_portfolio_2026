@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARCHITECT_OS | Technical Deep-Dive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(40, 42, 46, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(134, 149, 135, 0.1);
+        }
+        .tech-glow-primary:hover {
+            box-shadow: 0 0 20px rgba(61, 220, 132, 0.15);
+        }
+        .syntax-keyword { color: #86edff; }
+        .syntax-string { color: #3ddc84; }
+        .syntax-comment { color: #869587; }
+        
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline-effect::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent, rgba(61, 220, 132, 0.05), transparent);
+            height: 20%;
+            width: 100%;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#282a2e",
+                        "surface-dim": "#111318",
+                        "surface-variant": "#333539",
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#86edff",
+                        "outline": "#869587",
+                        "on-tertiary": "#00363d",
+                        "primary-fixed-dim": "#43e188",
+                        "on-surface": "#e2e2e8",
+                        "on-secondary-fixed-variant": "#004a78",
+                        "surface-tint": "#43e188",
+                        "on-secondary-fixed": "#001d34",
+                        "outline-variant": "#3c4a3f",
+                        "on-primary-container": "#005c31",
+                        "tertiary-fixed-dim": "#00daf3",
+                        "on-primary-fixed-variant": "#00522b",
+                        "surface-container-highest": "#333539",
+                        "primary-container": "#3ddc84",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1a1c20",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-primary": "#00391c",
+                        "inverse-primary": "#006d3b",
+                        "inverse-on-surface": "#2f3035",
+                        "primary-fixed": "#66fea2",
+                        "on-tertiary-container": "#005863",
+                        "surface": "#111318",
+                        "on-surface-variant": "#bbcbbc",
+                        "background": "#111318",
+                        "secondary": "#99cbff",
+                        "surface-container": "#1e2024",
+                        "surface-container-lowest": "#0c0e12",
+                        "secondary-fixed": "#cfe5ff",
+                        "tertiary-container": "#00d5ed",
+                        "secondary-fixed-dim": "#99cbff",
+                        "primary": "#60f99e",
+                        "secondary-container": "#0474b8",
+                        "on-background": "#e2e2e8",
+                        "on-secondary": "#003355",
+                        "on-secondary-container": "#eff5ff",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#004f58",
+                        "surface-bright": "#37393e",
+                        "tertiary-fixed": "#9cf0ff",
+                        "error-container": "#93000a",
+                        "inverse-surface": "#e2e2e8",
+                        "on-primary-fixed": "#00210e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "section-gap": "120px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "code-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Hanken Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl dark:bg-surface/60 border-b border-outline-variant/10 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold tracking-tight text-primary dark:text-primary">
+                ARCHITECT_OS
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">Work</a>
+<a class="text-primary dark:text-primary font-bold border-b-2 border-primary pb-1 font-label-caps text-label-caps" href="#">Skills</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">About</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">Contact</a>
+<button class="ml-4 px-6 py-2 bg-primary-container text-on-primary-container font-label-caps text-label-caps rounded hover:bg-primary transition-all active:scale-95">
+                    Download CV
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Hero Title -->
+<header class="mb-section-gap">
+<div class="flex items-center gap-2 mb-4">
+<span class="text-primary material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-label-caps text-label-caps text-primary tracking-[0.2em]">KNOWLEDGE BASE // V.2.4</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg max-w-4xl text-on-background">
+                Engineering <span class="text-primary">Excellence</span> Across the Stack.
+            </h1>
+</header>
+<!-- Bento Grid Skills -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap">
+<!-- Android Ecosystem -->
+<div class="md:col-span-7 glass-panel p-8 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">android</span>
+</div>
+<h2 class="font-headline-md text-headline-md mb-8 text-primary">Android Ecosystem</h2>
+<div class="space-y-8">
+<!-- Skill Item -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="font-label-caps text-label-caps">UI/UX &amp; JETPACK COMPOSE</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">95%</span>
+</div>
+<div class="h-1 bg-surface-variant w-full rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[95%] transition-all duration-1000"></div>
+</div>
+<p class="text-on-surface-variant font-body-md">Declarative UI architectures, Material Design 3, and fluid motion systems.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="font-label-caps text-label-caps">PERFORMANCE</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">90%</span>
+</div>
+<div class="h-1 bg-surface-variant w-full rounded-full">
+<div class="h-full bg-tertiary w-[90%]"></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="font-label-caps text-label-caps">ARCHITECTURE</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">98%</span>
+</div>
+<div class="h-1 bg-surface-variant w-full rounded-full">
+<div class="h-full bg-primary w-[98%]"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/5 text-primary border border-primary/20 rounded font-label-caps text-[10px]">KOTLIN COROUTINES</span>
+<span class="px-3 py-1 bg-primary/5 text-primary border border-primary/20 rounded font-label-caps text-[10px]">HILT/DAGGER</span>
+<span class="px-3 py-1 bg-primary/5 text-primary border border-primary/20 rounded font-label-caps text-[10px]">ROOM DB</span>
+<span class="px-3 py-1 bg-primary/5 text-primary border border-primary/20 rounded font-label-caps text-[10px]">RETROFIT</span>
+</div>
+</div>
+</div>
+<!-- Backend Engineering -->
+<div class="md:col-span-5 glass-panel p-8 rounded-xl group relative overflow-hidden">
+<div class="absolute -bottom-10 -right-10 opacity-5">
+<span class="material-symbols-outlined text-[12rem]" style="font-variation-settings: 'FILL' 1;">database</span>
+</div>
+<h2 class="font-headline-md text-headline-md mb-8 text-secondary">Backend Engineering</h2>
+<div class="space-y-6">
+<div class="flex items-center gap-4 p-4 bg-surface-container-high/50 rounded-lg border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">coffee</span>
+<div>
+<div class="font-label-caps text-label-caps">JAVA / SPRING BOOT</div>
+<div class="text-on-surface-variant text-sm">Enterprise-grade microservices</div>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-surface-container-high/50 rounded-lg border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">hub</span>
+<div>
+<div class="font-label-caps text-label-caps">API DESIGN (REST/GRPC)</div>
+<div class="text-on-surface-variant text-sm">Scalable contract-first architecture</div>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-surface-container-high/50 rounded-lg border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">storage</span>
+<div>
+<div class="font-label-caps text-label-caps">POSTGRES &amp; REDIS</div>
+<div class="text-on-surface-variant text-sm">Consistency, performance, and caching</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/10">
+<p class="font-code-sm text-code-sm text-on-surface-variant italic">"Building resilient systems that handle high-concurrency with deterministic latency."</p>
+</div>
+</div>
+<!-- DevOps & Tools -->
+<div class="md:col-span-12 glass-panel p-8 rounded-xl">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div class="max-w-md">
+<h2 class="font-headline-md text-headline-md mb-4 text-tertiary">DevOps &amp; Ecosystem</h2>
+<p class="text-on-surface-variant">Automating the lifecycle from git push to production deployment with zero-downtime strategies.</p>
+</div>
+<div class="flex flex-wrap gap-4">
+<div class="px-6 py-4 bg-surface-container-low rounded-lg border border-outline-variant/10 flex flex-col items-center gap-2 min-w-[120px]">
+<span class="material-symbols-outlined text-tertiary">box</span>
+<span class="font-label-caps text-label-caps">DOCKER</span>
+</div>
+<div class="px-6 py-4 bg-surface-container-low rounded-lg border border-outline-variant/10 flex flex-col items-center gap-2 min-w-[120px]">
+<span class="material-symbols-outlined text-tertiary">cycle</span>
+<span class="font-label-caps text-label-caps">CI/CD</span>
+</div>
+<div class="px-6 py-4 bg-surface-container-low rounded-lg border border-outline-variant/10 flex flex-col items-center gap-2 min-w-[120px]">
+<span class="material-symbols-outlined text-tertiary">cloud</span>
+<span class="font-label-caps text-label-caps">AWS/GCP</span>
+</div>
+<div class="px-6 py-4 bg-surface-container-low rounded-lg border border-outline-variant/10 flex flex-col items-center gap-2 min-w-[120px]">
+<span class="material-symbols-outlined text-tertiary">monitoring</span>
+<span class="font-label-caps text-label-caps">GRAFANA</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- System Architecture Section -->
+<section class="section-gap">
+<div class="flex flex-col items-center text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">System Architecture</h2>
+<div class="h-1 w-24 bg-primary rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="glass-panel rounded-xl aspect-[4/3] relative flex items-center justify-center overflow-hidden scanline-effect">
+<!-- Architectural Diagram Simulation -->
+<div class="w-full h-full p-8 flex flex-col justify-between">
+<!-- Top Level (Clients) -->
+<div class="flex justify-around items-center z-10">
+<div class="w-24 h-32 border border-primary/40 bg-primary/5 rounded-lg flex flex-col items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary">smartphone</span>
+<span class="font-code-sm text-[10px]">Mobile App</span>
+</div>
+<div class="w-24 h-32 border border-primary/40 bg-primary/5 rounded-lg flex flex-col items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary">laptop</span>
+<span class="font-code-sm text-[10px]">Web Client</span>
+</div>
+</div>
+<!-- Mid Level (Gateway) -->
+<div class="flex justify-center z-10">
+<div class="w-48 h-16 border-2 border-dashed border-secondary/40 bg-secondary/5 rounded-full flex items-center justify-center">
+<span class="font-label-caps text-label-caps text-secondary">API GATEWAY / KONG</span>
+</div>
+</div>
+<!-- Bottom Level (Services) -->
+<div class="flex justify-around items-center z-10">
+<div class="w-20 h-20 border border-tertiary/40 bg-tertiary/5 rounded rotate-45 flex items-center justify-center overflow-hidden">
+<span class="font-code-sm text-[8px] -rotate-45">Identity</span>
+</div>
+<div class="w-20 h-20 border border-tertiary/40 bg-tertiary/5 rounded rotate-45 flex items-center justify-center overflow-hidden">
+<span class="font-code-sm text-[8px] -rotate-45">Payment</span>
+</div>
+<div class="w-20 h-20 border border-tertiary/40 bg-tertiary/5 rounded rotate-45 flex items-center justify-center overflow-hidden">
+<span class="font-code-sm text-[8px] -rotate-45">Core API</span>
+</div>
+</div>
+<!-- Connections (Lines via CSS) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-20">
+<line stroke="#3ddc84" stroke-width="1" x1="25%" x2="50%" y1="20%" y2="45%"></line>
+<line stroke="#3ddc84" stroke-width="1" x1="75%" x2="50%" y1="20%" y2="45%"></line>
+<line stroke="#86edff" stroke-width="1" x1="50%" x2="20%" y1="55%" y2="80%"></line>
+<line stroke="#86edff" stroke-width="1" x1="50%" x2="50%" y1="55%" y2="80%"></line>
+<line stroke="#86edff" stroke-width="1" x1="50%" x2="80%" y1="55%" y2="80%"></line>
+</svg>
+</div>
+</div>
+<div class="space-y-8">
+<div class="space-y-4">
+<h3 class="font-headline-md text-headline-md text-primary">Full-Stack Connectivity</h3>
+<p class="text-body-lg text-on-surface-variant">My expertise lies in bridge-building. I don't just write apps; I architect end-to-end data pipelines that ensure sub-second latency from a mobile touch event to a database commit.</p>
+</div>
+<div class="bg-surface-container p-6 rounded-lg font-code-sm border border-outline-variant/10">
+<div class="flex gap-2 mb-4">
+<div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+</div>
+<pre class="text-sm overflow-x-auto"><span class="syntax-keyword">public class</span> <span class="text-on-surface">DataSyncService</span> {
+    <span class="syntax-comment">// Deterministic state management</span>
+    <span class="syntax-keyword">private void</span> <span class="text-on-surface">onTriggerSync</span>() {
+        <span class="syntax-keyword">this</span>.repository.pushBatch(
+            <span class="syntax-string">"POST /v1/telemetry"</span>, 
+            <span class="text-on-surface">currentContext</span>
+        );
+    }
+}</pre>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-label-caps text-[10px]">Zero Downtime</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-label-caps text-[10px]">Fault Tolerant</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-label-caps text-[10px]">GDPR Compliant</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-label-caps text-[10px]">E2E Encrypted</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/10 w-full py-16">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-gutter">
+<div class="font-label-caps text-label-caps text-on-surface-variant">
+                ARCHITECT_OS
+            </div>
+<div class="font-body-md text-body-md text-secondary dark:text-secondary text-center md:text-left">
+                © 2024 Senior Systems Architect. Built with Precision.
+            </div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-tertiary transition-all duration-200 hover:-translate-y-1 font-label-caps text-label-caps" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-all duration-200 hover:-translate-y-1 font-label-caps text-label-caps" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-all duration-200 hover:-translate-y-1 font-label-caps text-label-caps" href="#">Email</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for skill bars on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target.querySelector('.h-full');
+                    if (bar) {
+                        const targetWidth = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = targetWidth;
+                        }, 100);
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.space-y-3').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body></html>

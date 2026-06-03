@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kartik Mathur | Portfolio</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#6d3bd7",
+                        "tertiary": "#6d3bd7",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#21005d",
+                        "outline-variant": "#c9c5d0",
+                        "on-surface": "#1c1b1f",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fdf8ff",
+                        "on-secondary-container": "#1d192b",
+                        "on-primary-fixed-variant": "#21005d",
+                        "on-secondary-fixed": "#1d192b",
+                        "on-tertiary-container": "#21005d",
+                        "tertiary-container": "#eaddff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#21005d",
+                        "secondary-fixed-dim": "#ccc2dc",
+                        "surface-bright": "#fdf8ff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#e8def8",
+                        "on-background": "#1c1b1f",
+                        "on-surface-variant": "#49454f",
+                        "inverse-primary": "#d0bcff",
+                        "on-secondary-fixed-variant": "#49454f",
+                        "on-error-container": "#410002",
+                        "background": "#FBFBFA",
+                        "surface-container": "#f3eff7",
+                        "surface-tint": "#6750a4",
+                        "surface-variant": "#e7e0eb",
+                        "secondary-container": "#e8def8",
+                        "on-tertiary-fixed": "#21005d",
+                        "inverse-surface": "#313033",
+                        "on-primary-fixed": "#21005d",
+                        "surface-container-high": "#ece6f0",
+                        "secondary": "#625b71",
+                        "surface-container-highest": "#e6e1e5",
+                        "primary-container": "#eaddff",
+                        "primary-fixed": "#eaddff",
+                        "surface-dim": "#ded8e1",
+                        "tertiary-fixed": "#eaddff",
+                        "error-container": "#f9dedc",
+                        "inverse-on-surface": "#f4eff4",
+                        "outline": "#79747e",
+                        "primary": "#6750a4",
+                        "glass-bg": "rgba(255, 255, 255, 0.7)",
+                        "tertiary-fixed-dim": "#efb8c8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "unit": "8px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Instrument Serif"],
+                        "label-sm": ["Geist"],
+                        "headline-lg-mobile": ["Instrument Serif"],
+                        "label-md": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "body-md": ["Geist"],
+                        "headline-md": ["Instrument Serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #FBFBFA; /* Custom paper off-white */
+            color: #1c1b1f;
+            scroll-behavior: smooth;
+        }
+        .glass-pill {
+            backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.72);
+        }
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #6750a4;
+        }
+        .project-card img {
+            filter: grayscale(100%);
+            transition: filter 0.6s ease;
+        }
+        .project-card:hover img {
+            filter: grayscale(0%);
+        }
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 rounded-full px-6 py-3 w-max glass-pill z-50 flex items-center gap-8 border border-outline-variant/30 shadow-2xl shadow-primary/5">
+<span class="font-headline-lg text-[24px] font-bold text-on-surface">Kartik Mathur</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md hover:text-primary transition-colors duration-300 scale-95 active:scale-90 transition-transform" href="#hero">Me</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 scale-95 active:scale-90 transition-transform" href="#projects">Projects</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 scale-95 active:scale-90 transition-transform" href="#contact">Contact</a>
+</div>
+<button class="flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+</nav>
+<main class="max-w-[1280px] mx-auto px-margin_mobile md:px-margin_desktop">
+<!-- Hero Section -->
+<section class="pt-48 pb-section-gap flex flex-col items-center text-center" id="hero">
+<div class="mb-8 inline-flex items-center px-4 py-1.5 rounded-full border border-outline-variant/30 bg-surface-container-low/50">
+<span class="pulse-dot"></span>
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Available for Design Systems Engineering</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg max-w-4xl text-on-surface leading-[1.05]">
+                Engineering <span class="italic font-light">precision</span> into digital architectural experiences.
+            </h1>
+<p class="mt-8 font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                A design system architect and full-stack developer focusing on minimal, performance-driven interfaces for technical organizations.
+            </p>
+<div class="mt-12 flex gap-4">
+<a class="px-8 py-4 bg-on-surface text-surface rounded-full font-label-md transition-all hover:bg-primary-container hover:text-on-primary-container" href="#projects">
+                    View Systems
+                </a>
+<a class="px-8 py-4 border border-outline-variant text-on-surface rounded-full font-label-md hover:bg-surface-container transition-all" href="#contact">
+                    Get in Touch
+                </a>
+</div>
+</section>
+<!-- Bento Grid Projects Section -->
+<section class="py-section-gap" id="projects">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase">Portfolio</span>
+<h2 class="font-headline-md text-headline-md mt-2">Selected Architecture</h2>
+</div>
+<div class="hidden md:block h-[1px] flex-grow mx-12 bg-outline-variant/10"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">01 / 03</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Project Card -->
+<div class="md:col-span-8 group project-card bg-surface border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
+<div class="aspect-video w-full relative overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A sophisticated architectural design system dashboard rendered in a high-key light mode style. The UI features clean, razor-sharp typography, minimalist charts with subtle violet accents, and expansive white space. The lighting is bright and airy, reflecting a morning studio environment, conveying a sense of organized, professional engineering calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeGBTEO-1-g0g4GidE-T6XdrVYiTmoY01_YJ9tTGY3nZ43RQaa8FRt5dmPHxl28mXdPJgPHFVO_rPFQ3iAlBks8d9PL6V9Cfld3jBQu43BTQCYx5BaXCEu1qswviIPnN-dL7Yk3PkCVLdXH6Mx9Mo1Vwr5ao9g9EfJJWNy78kuoRjNfEoMHRnJdvl5GADOnA28d117l0VDEBNkynhPqjU6dBMtp7r0Clbq3-tSoR72hIa09Mse2aGbaWxNXjS-PcWoZL9M7JP91kI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md leading-none">Obsidian Core</h3>
+<p class="mt-2 text-on-surface-variant font-body-md">A scalable React component library for heavy engineering applications.</p>
+</div>
+<span class="material-symbols-outlined text-primary">arrow_outward</span>
+</div>
+<div class="mt-6 flex gap-2">
+<span class="px-3 py-1 rounded-full border border-outline-variant/30 text-[12px] font-label-md">Typescript</span>
+<span class="px-3 py-1 rounded-full border border-outline-variant/30 text-[12px] font-label-md">Tailwind</span>
+</div>
+</div>
+</div>
+<!-- Small Vertical Card -->
+<div class="md:col-span-4 group project-card bg-surface border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
+<div class="aspect-[4/5] w-full relative overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A close-up shot of a minimalist mobile interface on a white ceramic surface. The screen displays a financial tracking app with deep charcoal typography and thin gray dividers. The surrounding lighting is soft and diffused, highlighting the elegant glass-like textures of the interface components in a pristine light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6yjEoBnjmemylcNQjFMoqkaeVRFRf5Opf8MV-eo3Uwsf926jt1U1KvIzIOGMijCJacSgL5GFfpo3mtbZNFAYzUFRrYuTVSP_KDeMwGt0PB6cfOAUlXSetVeheF1s_r6b390W7SrOHJWET62i53wi915k8oZAIv0Us5rLAinWvd1qx-R0JBSkNF1qfYwKCTkBUd3Snk4WVfcSVGUFw2DlDCprRSiSf6neV6oK7uzZUxwUOtYYwaKHL6z1mAQnJB53EWrPTM0hUZ3Q"/>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md leading-none">Flux Mobile</h3>
+<p class="mt-2 text-on-surface-variant font-body-md">Fintech navigation prototype.</p>
+<div class="mt-6">
+<span class="px-3 py-1 rounded-full border border-outline-variant/30 text-[12px] font-label-md">Framer Motion</span>
+</div>
+</div>
+</div>
+<!-- Medium Wide Card -->
+<div class="md:col-span-6 group project-card bg-surface border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
+<div class="aspect-video w-full relative overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A wide-angle conceptual visualization of a server management interface. The design is presented in a crisp off-white environment with subtle gray gradients. High-contrast labels in a serif font provide an editorial feel, while the data visualizations use a singular violet highlight color to emphasize critical status metrics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV8Js_VBxwQnvUECzE88hCkMEToPje-kXV6HtN9beZHdd7BEzPKORxynBouu4YGul8XfUTgv_3sdAvn2LwxoLCfM_YFtGIyd15RqiQ-i3BtM-iCgwF06J7hFaubVA_HNUPsVENKCI80RbJkVasSkgWmmZVOKypzd9WpoeKbPyaGGiz3d5t-_NOIAvE4Q6BO652mxgp5I3YAVGz__YNCBQQWtKYbFXI3r8KSp77r_IydJpMkmv78NND9sMT48ZLnxDteEvAfx3g-38"/>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md leading-none">Helios Monitoring</h3>
+<p class="mt-2 text-on-surface-variant font-body-md">Real-time cloud infrastructure dashboard.</p>
+<div class="mt-6 flex gap-2">
+<span class="px-3 py-1 rounded-full border border-outline-variant/30 text-[12px] font-label-md">Next.js</span>
+<span class="px-3 py-1 rounded-full border border-outline-variant/30 text-[12px] font-label-md">D3.js</span>
+</div>
+</div>
+</div>
+<!-- Content Card with Text focus -->
+<div class="md:col-span-6 flex flex-col justify-center p-12 bg-surface-container-low rounded-xl border border-outline-variant/10">
+<span class="font-label-sm text-label-sm text-primary mb-4">Philosophy</span>
+<h3 class="font-headline-md text-headline-md mb-6 leading-tight">Complex systems deserve simple interfaces.</h3>
+<p class="text-on-surface-variant font-body-lg leading-relaxed">
+                        I believe that the most powerful tools are often the quietest. By stripping away visual noise and focusing on typographic hierarchy and vertical rhythm, we create space for users to solve hard problems.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Experience List Section -->
+<section class="py-section-gap">
+<div class="max-w-3xl">
+<span class="font-label-sm text-label-sm text-primary uppercase">History</span>
+<h2 class="font-headline-md text-headline-md mt-2 mb-12">Engineering the web since 2018</h2>
+<div class="space-y-0">
+<!-- Exp Item -->
+<div class="group flex flex-col md:flex-row md:items-center py-8 border-t border-outline-variant/20 hover:bg-surface-container-lowest transition-all px-4 -mx-4 rounded-lg">
+<span class="font-label-md text-on-surface-variant md:w-32">2022 — Present</span>
+<div class="flex-grow">
+<h4 class="font-headline-md text-[24px] group-hover:text-primary transition-colors">Lead Design Technologist</h4>
+<p class="text-on-surface-variant font-body-md">Stellar Systems Inc.</p>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity text-primary">chevron_right</span>
+</div>
+<!-- Exp Item -->
+<div class="group flex flex-col md:flex-row md:items-center py-8 border-t border-outline-variant/20 hover:bg-surface-container-lowest transition-all px-4 -mx-4 rounded-lg">
+<span class="font-label-md text-on-surface-variant md:w-32">2020 — 2022</span>
+<div class="flex-grow">
+<h4 class="font-headline-md text-[24px] group-hover:text-primary transition-colors">Full-Stack Developer</h4>
+<p class="text-on-surface-variant font-body-md">Nexus Creative Agency</p>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity text-primary">chevron_right</span>
+</div>
+<!-- Exp Item -->
+<div class="group flex flex-col md:flex-row md:items-center py-8 border-t border-b border-outline-variant/20 hover:bg-surface-container-lowest transition-all px-4 -mx-4 rounded-lg">
+<span class="font-label-md text-on-surface-variant md:w-32">2018 — 2020</span>
+<div class="flex-grow">
+<h4 class="font-headline-md text-[24px] group-hover:text-primary transition-colors">Junior Frontend Dev</h4>
+<p class="text-on-surface-variant font-body-md">Freelance Studio</p>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity text-primary">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact CTA -->
+<section class="py-section-gap text-center" id="contact">
+<div class="bg-surface-container-highest/30 rounded-3xl p-16 md:p-24 border border-outline-variant/20 relative overflow-hidden">
+<!-- Background Subtle Gradient -->
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(103,80,164,0.05),transparent)] pointer-events-none"></div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg max-w-2xl mx-auto leading-none">
+                    Let’s build something <span class="italic">resilient</span>.
+                </h2>
+<p class="mt-8 font-body-lg text-on-surface-variant max-w-xl mx-auto">
+                    Currently accepting new projects for Q3 2024. Reach out for consultations on design systems and interface engineering.
+                </p>
+<div class="mt-12">
+<a class="text-headline-md hover:text-primary underline underline-offset-8 decoration-outline-variant/40 transition-colors" href="mailto:hello@kartik.dev">
+                        hello@kartik.dev
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full pt-12 pb-8 border-t border-outline-variant/30 bg-background">
+<div class="max-w-7xl mx-auto px-margin_desktop grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-4">
+<span class="font-headline-lg text-[24px] font-bold text-on-surface">Kartik Mathur</span>
+<p class="text-on-surface-variant font-body-md max-w-xs">© 2024 Kartik Mathur. Crafted with precision.</p>
+</div>
+<div class="flex flex-col gap-2">
+<h5 class="font-label-sm text-label-sm text-primary uppercase mb-2">Connect</h5>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md" href="#">Twitter</a>
+</div>
+<div class="flex flex-col gap-2">
+<h5 class="font-label-sm text-label-sm text-primary uppercase mb-2">Local Time</h5>
+<p class="text-on-surface-variant font-body-md" id="local-time">12:00 PM GMT+5:30</p>
+<p class="text-on-surface-variant font-body-md">New Delhi, India</p>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Local Time Update
+        function updateTime() {
+            const timeEl = document.getElementById('local-time');
+            if (timeEl) {
+                const now = new Date();
+                const options = { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' };
+                timeEl.innerText = now.toLocaleTimeString('en-US', options) + ' GMT+5:30';
+            }
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // Parallax-ish effect for cards on mouse move
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 25;
+                const rotateY = (centerX - x) / 25;
+                
+                card.style.transform = `translateY(-8px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) perspective(1000px) rotateX(0deg) rotateY(0deg)';
+            });
+        });
+    </script>
+</body></html>

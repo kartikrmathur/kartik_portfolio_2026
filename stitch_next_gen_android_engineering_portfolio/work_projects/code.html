@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-high": "#282a2e",
+            "surface-dim": "#111318",
+            "surface-variant": "#333539",
+            "on-error-container": "#ffdad6",
+            "tertiary": "#86edff",
+            "outline": "#869587",
+            "on-tertiary": "#00363d",
+            "primary-fixed-dim": "#43e188",
+            "on-surface": "#e2e2e8",
+            "on-secondary-fixed-variant": "#004a78",
+            "surface-tint": "#43e188",
+            "on-secondary-fixed": "#001d34",
+            "outline-variant": "#3c4a3f",
+            "on-primary-container": "#005c31",
+            "tertiary-fixed-dim": "#00daf3",
+            "on-primary-fixed-variant": "#00522b",
+            "surface-container-highest": "#333539",
+            "primary-container": "#3ddc84",
+            "error": "#ffb4ab",
+            "surface-container-low": "#1a1c20",
+            "on-tertiary-fixed": "#001f24",
+            "on-primary": "#00391c",
+            "inverse-primary": "#006d3b",
+            "inverse-on-surface": "#2f3035",
+            "primary-fixed": "#66fea2",
+            "on-tertiary-container": "#005863",
+            "surface": "#111318",
+            "on-surface-variant": "#bbcbbc",
+            "background": "#111318",
+            "secondary": "#99cbff",
+            "surface-container": "#1e2024",
+            "surface-container-lowest": "#0c0e12",
+            "secondary-fixed": "#cfe5ff",
+            "tertiary-container": "#00d5ed",
+            "secondary-fixed-dim": "#99cbff",
+            "primary": "#60f99e",
+            "secondary-container": "#0474b8",
+            "on-background": "#e2e2e8",
+            "on-secondary": "#003355",
+            "on-secondary-container": "#eff5ff",
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#004f58",
+            "surface-bright": "#37393e",
+            "tertiary-fixed": "#9cf0ff",
+            "error-container": "#93000a",
+            "inverse-surface": "#e2e2e8",
+            "on-primary-fixed": "#00210e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "container-max": "1280px",
+            "section-gap": "120px",
+            "margin-desktop": "64px",
+            "base": "8px",
+            "margin-mobile": "20px",
+            "gutter": "24px"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter"],
+            "display-lg": ["Hanken Grotesk"],
+            "headline-md": ["Hanken Grotesk"],
+            "headline-lg": ["Hanken Grotesk"],
+            "body-md": ["Inter"],
+            "code-sm": ["JetBrains Mono"],
+            "label-caps": ["JetBrains Mono"],
+            "display-lg-mobile": ["Hanken Grotesk"]
+          },
+          "fontSize": {
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "display-lg": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+            "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+            "headline-lg": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "code-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+            "display-lg-mobile": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-card {
+      background: rgba(30, 32, 36, 0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(134, 149, 135, 0.1);
+    }
+    .technical-glow:hover {
+      box-shadow: 0 0 20px rgba(96, 249, 158, 0.15);
+    }
+    .syntax-comment { color: #869587; }
+    .syntax-keyword { color: #60f99e; }
+    .syntax-string { color: #86edff; }
+    
+    body {
+      background-color: #0A0C10;
+      color: #e2e2e8;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #3c4a3f;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-primary/30 selection:text-primary overflow-x-hidden">
+<!-- TopNavBar Navigation Shell -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl dark:bg-surface/60 border-b border-outline-variant/10 shadow-sm dark:shadow-none h-20">
+<nav class="flex justify-between items-center h-full px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-primary dark:text-primary">ARCHITECT_OS</span>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-primary dark:text-primary font-bold border-b-2 border-primary pb-1 transition-colors duration-300" href="#">Work</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Skills</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">About</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-caps text-label-caps hover:bg-primary-fixed-dim transition-all active:scale-95">
+        Download CV
+      </button>
+</nav>
+</header>
+<main class="pt-32 pb-section-gap">
+<!-- Hero Section -->
+<section class="px-margin-desktop max-w-container-max mx-auto mb-16">
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-primary flex items-center gap-2">
+<span class="w-12 h-[1px] bg-primary/30"></span>
+          PORTFOLIO_V2.4
+        </span>
+<h1 class="font-display-lg text-display-lg md:text-display-lg text-on-surface max-w-4xl">
+          Architectural excellence <br/> in <span class="text-primary">Engineering.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+          A curated selection of high-performance Android applications and robust Java backend systems built with precision and technical mastery.
+        </p>
+</div>
+</section>
+<!-- Project Gallery & Filtering -->
+<section class="px-margin-desktop max-w-container-max mx-auto" id="work">
+<!-- Filter Bar -->
+<div class="flex flex-wrap items-center justify-between gap-6 mb-12 border-b border-outline-variant/10 pb-8">
+<div class="flex gap-2 p-1 bg-surface-container-low rounded-xl">
+<button class="project-filter px-6 py-2 rounded-lg font-label-caps text-label-caps transition-all bg-primary text-on-primary" data-filter="all" onclick="filterProjects('all')">ALL_SYSTEMS</button>
+<button class="project-filter px-6 py-2 rounded-lg font-label-caps text-label-caps transition-all text-on-surface-variant hover:text-primary" data-filter="android" onclick="filterProjects('android')">ANDROID_OS</button>
+<button class="project-filter px-6 py-2 rounded-lg font-label-caps text-label-caps transition-all text-on-surface-variant hover:text-primary" data-filter="backend" onclick="filterProjects('backend')">BACKEND_CORE</button>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span>FILTER_STATUS: <span class="text-primary" id="filter-status">ACTIVE</span></span>
+</div>
+</div>
+<!-- Projects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="projects-grid">
+<!-- Project Card 1: Android -->
+<article class="project-card android group relative" data-category="android">
+<div class="glass-card rounded-xl overflow-hidden flex flex-col h-full technical-glow transition-all duration-500">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 grayscale-[40%]" data-alt="A futuristic mobile application interface displayed on a sleek high-end smartphone with neon cyan and green accents. The UI features complex data visualizations, circular progress meters, and glowing biometric authentication patterns. The lighting is dark and cinematic, highlighting the glass textures of the device and the vibrant digital elements of the app. The overall aesthetic is clean, technical, and hyper-modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXClQG__YupN98W8z7Z-tyE1XDHfmxwQClvjhzLNFJXNXlfbeq0mWjcoZGll3YxXoW21eoFYD2awJLHRRGp13Cvl9yRBYqoMjGVjhK4sz2KsO8QgYCEY19PnpP6Rq1LuVCw9kFX0ltmd9_zWrwIFLLTo3lBi-PYBdF_mHrs_fhOWTtY4Sr_d9etb_O6-grsUzK7icC4Inm2wWyO2u2r9pC0Ib_8FUBl-fYiL5zSxu1OHxSn7nyGJovM3oKGqA-OGbnSOCUfV_Klwub"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow gap-4">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-[24px] text-on-surface">Nexus Mobile</h3>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">phone_android</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-primary/5 text-primary border border-primary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">KOTLIN</span>
+<span class="bg-primary/5 text-primary border border-primary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">JETPACK COMPOSE</span>
+<span class="bg-primary/5 text-primary border border-primary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">ROOM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                High-performance dashboard for monitoring real-time server clusters with reactive state management and offline-first architecture.
+              </p>
+<div class="mt-auto pt-6">
+<a class="group/btn flex items-center gap-2 font-label-caps text-label-caps text-primary hover:text-tertiary transition-colors" href="#">
+<span>VIEW CASE STUDY</span>
+<span class="material-symbols-outlined text-[16px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- Project Card 2: Backend -->
+<article class="project-card backend group relative" data-category="backend">
+<div class="glass-card rounded-xl overflow-hidden flex flex-col h-full technical-glow transition-all duration-500">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 grayscale-[40%]" data-alt="A sprawling top-down view of a high-tech server room with rows of gleaming black hardware towers and illuminated fiber optic cables pulsing with soft cyan light. The floor is a reflective dark material that catches the glow of the technical equipment. The atmosphere is quiet, powerful, and intensely orderly, representing a robust backend infrastructure system. The color palette is dominated by deep navy, chrome, and neon blue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYs-rVjezm_cjbpIu-f0mlJPtoXFXtXYHuwWGr9lSUQY98KvwKJnFq7ue-Wpxort6fVPK7-HVGjw3wKLMsuQrA2c1nhJ2YRRf0M7fORs-soV2aW5AGCr0J1enoIXxcI1D9vqrB0kqaQ3nGuZo-7S1-rmaEvghGjzCct9z3sqL8i-yJB8nPFU_jW9H1Fi16LPDj63OEoycK-mYCalH0wmPJvHki55hK9xlvzdVwlH5wQ7eWXFP-menAD3DAtAEUWojJIkkGYzdzwpgx"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow gap-4">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-[24px] text-on-surface">Core Infrastructure</h3>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-tertiary/5 text-tertiary border border-tertiary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">JAVA 21</span>
+<span class="bg-tertiary/5 text-tertiary border border-tertiary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">SPRING BOOT</span>
+<span class="bg-tertiary/5 text-tertiary border border-tertiary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">AWS</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Distributed microservices architecture handling over 1M requests per minute with Kafka event streaming and Redis caching.
+              </p>
+<div class="mt-auto pt-6">
+<a class="group/btn flex items-center gap-2 font-label-caps text-label-caps text-primary hover:text-tertiary transition-colors" href="#">
+<span>VIEW CASE STUDY</span>
+<span class="material-symbols-outlined text-[16px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- Project Card 3: Android -->
+<article class="project-card android group relative" data-category="android">
+<div class="glass-card rounded-xl overflow-hidden flex flex-col h-full technical-glow transition-all duration-500">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 grayscale-[40%]" data-alt="A close-up shot of a hand interacting with a high-definition tablet screen displaying a sophisticated weather and environmental tracking app. The screen shows detailed 3D topographic maps and animated atmospheric pressure gradients in shades of green and grey. The background is a dimly lit workspace with minimalist design and industrial textures. The image conveys a sense of professional precision and advanced data analysis." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyDdVnaJAXL8mGHFIWiHuk5c6oYapPu-HzTaElBXMzxC4cL3ydikRWI4-VTLr7flk3Ck7UPm9GExkHz_4NmTUFAb5rU5p5Zfm1Ck0j42RUBNsa9ngMfo-RulDtL2-2Ar-cHwdswVUwV4tVgdea_X25w3L7DuSx-8C_RQIhoyLUdxi4pFrLBPF4x4KWtYhXAuKeaLzpRWEDaz40DX5E0so6HB9UeOTB-ArjBstenzCzEqki4aiW1Hm_OnsJlHrjPJvD8AediWGGrikN"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow gap-4">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-[24px] text-on-surface">GeoTrace Pro</h3>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">explore</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-primary/5 text-primary border border-primary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">KOTLIN</span>
+<span class="bg-primary/5 text-primary border border-primary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">GOOGLE MAPS SDK</span>
+<span class="bg-primary/5 text-primary border border-primary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">MVVM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Advanced geolocation utility featuring custom MapBox layering, geofencing API integration, and background worker optimization.
+              </p>
+<div class="mt-auto pt-6">
+<a class="group/btn flex items-center gap-2 font-label-caps text-label-caps text-primary hover:text-tertiary transition-colors" href="#">
+<span>VIEW CASE STUDY</span>
+<span class="material-symbols-outlined text-[16px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- Project Card 4: Backend -->
+<article class="project-card backend group relative" data-category="backend">
+<div class="glass-card rounded-xl overflow-hidden flex flex-col h-full technical-glow transition-all duration-500">
+<div class="relative aspect-video overflow-hidden bg-surface-container">
+<!-- Code block representation for a backend project image -->
+<div class="p-4 font-code-sm text-code-sm h-full flex flex-col gap-2">
+<div class="flex gap-1.5 mb-2">
+<div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+</div>
+<div><span class="syntax-keyword">package</span> com.architect.vault;</div>
+<div><span class="syntax-keyword">import</span> org.springframework.security.*;</div>
+<div><span class="syntax-comment">// Secure implementation of AES-256</span></div>
+<div><span class="syntax-keyword">public class</span> <span class="syntax-string">EncryptionService</span> { ... }</div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow gap-4">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-[24px] text-on-surface">Vault Security</h3>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-tertiary/5 text-tertiary border border-tertiary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">SPRING SECURITY</span>
+<span class="bg-tertiary/5 text-tertiary border border-tertiary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">OAUTH2</span>
+<span class="bg-tertiary/5 text-tertiary border border-tertiary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">POSTGRES</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Enterprise-grade authentication provider featuring multi-tenant JWT validation, RBAC, and encrypted PII storage solutions.
+              </p>
+<div class="mt-auto pt-6">
+<a class="group/btn flex items-center gap-2 font-label-caps text-label-caps text-primary hover:text-tertiary transition-colors" href="#">
+<span>VIEW CASE STUDY</span>
+<span class="material-symbols-outlined text-[16px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- Project Card 5: Android -->
+<article class="project-card android group relative" data-category="android">
+<div class="glass-card rounded-xl overflow-hidden flex flex-col h-full technical-glow transition-all duration-500">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 grayscale-[40%]" data-alt="A focused image of a digital tablet being used to control a smart home environment. The screen displays a minimalist control panel with toggles for lighting, temperature, and media, all designed with a futuristic dark-mode aesthetic and neon green indicators. The background shows a modern, tech-enabled living space with soft ambient lighting. The scene is clean, efficient, and emphasizes the bridge between mobile software and hardware control." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6Luk9G5fTTJwgO56CkS6XBc12Xtb_Fhlw_eHc4uwRSpJKufok1mA4trbkts7LxObgj4haPMKUljZwjsMyjj7MoqcYbRKffzbEAKRhV7KIb2CggO_q3NR21LD_SXpMB_nbJ0Zks8waRQLndXLmEpIasycHmMVut_9RoMuDZXlh8QkV8gEfAfEZs-8OP9V7qAf9uInWlWCY6idoaq_WhS9EVh6Yj8HvoV4DwhGKk0ZuUNFHK_m60MUz16oLCQlpTrPj6QTyWTuif_Iy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow gap-4">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-[24px] text-on-surface">Lumina IoT</h3>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">router</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-primary/5 text-primary border border-primary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">KOTLIN COROUTINES</span>
+<span class="bg-primary/5 text-primary border border-primary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">MQTT</span>
+<span class="bg-primary/5 text-primary border border-primary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">BLE</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Unified IoT controller using Bluetooth Low Energy and MQTT to synchronize heterogeneous smart devices with low-latency messaging.
+              </p>
+<div class="mt-auto pt-6">
+<a class="group/btn flex items-center gap-2 font-label-caps text-label-caps text-primary hover:text-tertiary transition-colors" href="#">
+<span>VIEW CASE STUDY</span>
+<span class="material-symbols-outlined text-[16px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- Project Card 6: Backend -->
+<article class="project-card backend group relative" data-category="backend">
+<div class="glass-card rounded-xl overflow-hidden flex flex-col h-full technical-glow transition-all duration-500">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 grayscale-[40%]" data-alt="A striking image of a microchip processor glowing with golden circuits and electric blue light, set against a dark background with digital artifacts and light streaks. The focus is sharp on the intricate patterns of the chip, representing high-performance computational power. The atmosphere is high-energy and futuristic, using a palette of deep blacks, vibrant golds, and electric blues to suggest cutting-edge backend processing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdBb-L4cVe8wgFZcAv-42niGMwgb55dCc81RRmflP8ceBsekGwuWO88QFlnklNW76b-QxmPXbV-f7BOB0rFv2k8rjUT2x1BqTw1LZF4-oyWAO-ORRTwYw-5YDjk3WV9cEsI6Ld2GQTBvqRD1YO0uDuBnChmaPbR1Vm2ADUmOMo-br5wv8MO6rhRbtppp09SNnEJ4nqks7gFQ_VOtSfAtWywgvYyfdzgC9Xq8HOPM23TF8YfbYmF_0__PZq1ARZSbkhCIADLklW2DFU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow gap-4">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-[24px] text-on-surface">Data Engine</h3>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">database</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-tertiary/5 text-tertiary border border-tertiary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">JAVA 17</span>
+<span class="bg-tertiary/5 text-tertiary border border-tertiary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">ELASTICSEARCH</span>
+<span class="bg-tertiary/5 text-tertiary border border-tertiary/20 px-2 py-1 rounded-lg font-label-caps text-[10px]">DOCKER</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                High-throughput analytics engine optimized for complex search queries across multi-terabyte datasets using distributed indexing.
+              </p>
+<div class="mt-auto pt-6">
+<a class="group/btn flex items-center gap-2 font-label-caps text-label-caps text-primary hover:text-tertiary transition-colors" href="#">
+<span>VIEW CASE STUDY</span>
+<span class="material-symbols-outlined text-[16px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Empty State (Hidden by default) -->
+<div class="hidden flex-col items-center justify-center py-20 px-margin-desktop text-center" id="empty-state">
+<span class="material-symbols-outlined text-outline-variant text-[64px] mb-4">search_off</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">No projects found</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">The selected filter returned 0 results from the current repository.</p>
+<button class="mt-8 text-primary font-label-caps text-label-caps border border-primary/20 px-6 py-2 rounded-lg hover:bg-primary/10 transition-all" onclick="filterProjects('all')">RESET_FILTERS</button>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-16 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-gutter">
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">ARCHITECT_OS // SV_004</span>
+<p class="font-body-md text-body-md text-secondary dark:text-secondary opacity-60">© 2024 Senior Systems Architect. Built with Precision.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-all duration-200 hover:-translate-y-1 transition-transform" href="#">GitHub</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-all duration-200 hover:-translate-y-1 transition-transform" href="#">LinkedIn</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-all duration-200 hover:-translate-y-1 transition-transform" href="#">Email</a>
+</div>
+</div>
+</footer>
+<script>
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.project-card');
+      const filters = document.querySelectorAll('.project-filter');
+      const statusText = document.getElementById('filter-status');
+      const emptyState = document.getElementById('empty-state');
+      const grid = document.getElementById('projects-grid');
+      
+      let visibleCount = 0;
+
+      // Update Filter Status Text
+      statusText.innerText = category.toUpperCase();
+
+      // Update Buttons
+      filters.forEach(btn => {
+        if (btn.getAttribute('data-filter') === category) {
+          btn.classList.add('bg-primary', 'text-on-primary');
+          btn.classList.remove('text-on-surface-variant');
+        } else {
+          btn.classList.remove('bg-primary', 'text-on-primary');
+          btn.classList.add('text-on-surface-variant');
+        }
+      });
+
+      // Filter Logic
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (category === 'all' || cardCategory === category) {
+          card.style.display = 'block';
+          visibleCount++;
+          // Animation trigger
+          card.classList.add('animate-fade-in');
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Toggle Empty State
+      if (visibleCount === 0) {
+        grid.classList.add('hidden');
+        emptyState.classList.remove('hidden');
+        emptyState.classList.add('flex');
+      } else {
+        grid.classList.remove('hidden');
+        emptyState.classList.add('hidden');
+        emptyState.classList.remove('flex');
+      }
+    }
+
+    // Micro-interactions and initialization
+    window.addEventListener('DOMContentLoaded', () => {
+      // Add entry animation classes if needed via CSS or JS
+    });
+  </script>
+<style>
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 0.4s ease-out forwards;
+    }
+  </style>
+</body></html>

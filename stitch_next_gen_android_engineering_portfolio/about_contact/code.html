@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARCHITECT_OS | About &amp; Contact</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#282a2e",
+                    "surface-dim": "#111318",
+                    "surface-variant": "#333539",
+                    "on-error-container": "#ffdad6",
+                    "tertiary": "#86edff",
+                    "outline": "#869587",
+                    "on-tertiary": "#00363d",
+                    "primary-fixed-dim": "#43e188",
+                    "on-surface": "#e2e2e8",
+                    "on-secondary-fixed-variant": "#004a78",
+                    "surface-tint": "#43e188",
+                    "on-secondary-fixed": "#001d34",
+                    "outline-variant": "#3c4a3f",
+                    "on-primary-container": "#005c31",
+                    "tertiary-fixed-dim": "#00daf3",
+                    "on-primary-fixed-variant": "#00522b",
+                    "surface-container-highest": "#333539",
+                    "primary-container": "#3ddc84",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#1a1c20",
+                    "on-tertiary-fixed": "#001f24",
+                    "on-primary": "#00391c",
+                    "inverse-primary": "#006d3b",
+                    "inverse-on-surface": "#2f3035",
+                    "primary-fixed": "#66fea2",
+                    "on-tertiary-container": "#005863",
+                    "surface": "#111318",
+                    "on-surface-variant": "#bbcbbc",
+                    "background": "#111318",
+                    "secondary": "#99cbff",
+                    "surface-container": "#1e2024",
+                    "surface-container-lowest": "#0c0e12",
+                    "secondary-fixed": "#cfe5ff",
+                    "tertiary-container": "#00d5ed",
+                    "secondary-fixed-dim": "#99cbff",
+                    "primary": "#60f99e",
+                    "secondary-container": "#0474b8",
+                    "on-background": "#e2e2e8",
+                    "on-secondary": "#003355",
+                    "on-secondary-container": "#eff5ff",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed-variant": "#004f58",
+                    "surface-bright": "#37393e",
+                    "tertiary-fixed": "#9cf0ff",
+                    "error-container": "#93000a",
+                    "inverse-surface": "#e2e2e8",
+                    "on-primary-fixed": "#00210e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "section-gap": "120px",
+                    "margin-desktop": "64px",
+                    "base": "8px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-md": ["Inter"],
+                    "code-sm": ["JetBrains Mono"],
+                    "label-caps": ["JetBrains Mono"],
+                    "display-lg-mobile": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "code-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0C10;
+            color: #e2e2e8;
+            scroll-behavior: smooth;
+        }
+
+        .glass-card {
+            background: rgba(40, 42, 46, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(134, 149, 135, 0.1);
+        }
+
+        .technical-glow {
+            box-shadow: 0 0 20px rgba(96, 249, 158, 0.15);
+        }
+
+        .grid-overlay {
+            background-image: radial-gradient(rgba(134, 149, 135, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .syntax-keyword { color: #86edff; }
+        .syntax-string { color: #60f99e; }
+        .syntax-comment { color: #869587; }
+
+        .form-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(134, 149, 135, 0.3);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-bottom-color: #60f99e;
+            box-shadow: 0 4px 12px -6px rgba(96, 249, 158, 0.3);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- Grid Background -->
+<div class="fixed inset-0 grid-overlay -z-10 pointer-events-none"></div>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-outline-variant/10 shadow-sm">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-primary">ARCHITECT_OS</span>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">Work</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">Skills</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-caps text-label-caps" href="#">About</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#contact">Contact</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-caps text-label-caps font-bold active:scale-95 transition-transform technical-glow">
+                    Download CV
+                </button>
+</div>
+<!-- Mobile Toggle Placeholder -->
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Hero / About Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start mb-section-gap">
+<!-- Left: Text Content -->
+<div class="lg:col-span-7 space-y-8">
+<header>
+<span class="font-label-caps text-label-caps text-primary tracking-widest block mb-4">// THE ARCHITECT'S JOURNEY</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface leading-none">
+                        From UI Pixel to <br/>
+<span class="text-secondary">System Root.</span>
+</h1>
+</header>
+<div class="space-y-6 text-on-surface-variant font-body-lg text-body-lg max-w-2xl">
+<p>
+                        My journey began in the tactile world of <span class="text-on-surface font-bold">Android development</span>, crafting fluid interfaces and managing the intricate lifecycles of mobile applications. It was here I learned that beauty is secondary to performance—a lesson that fueled my transition into the deep waters of <span class="text-on-surface font-bold">Backend Engineering</span>.
+                    </p>
+<p>
+                        Transitioning from Java on the client to Java on the server was a shift in scale, not just syntax. Today, I architect distributed systems where <span class="text-secondary font-bold">reliability</span> and <span class="text-secondary font-bold">throughput</span> are the primary metrics of success.
+                    </p>
+<p>
+                        My philosophy is simple: <span class="text-primary font-bold italic">Clean Code &amp; Scalable Design.</span> Whether it's a micro-interaction or a microservice, if it's not maintainable, it's not finished.
+                    </p>
+</div>
+<!-- Philosophy Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter pt-8">
+<div class="glass-card p-6 rounded-xl border-l-4 border-l-primary">
+<span class="material-symbols-outlined text-primary mb-4" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<h3 class="font-headline-md text-headline-md mb-2">Clean Code</h3>
+<p class="text-on-surface-variant font-body-md text-body-md">Writing code for humans first, machines second. Modular, tested, and self-documenting.</p>
+</div>
+<div class="glass-card p-6 rounded-xl border-l-4 border-l-secondary">
+<span class="material-symbols-outlined text-secondary mb-4" style="font-variation-settings: 'FILL' 1;">lan</span>
+<h3 class="font-headline-md text-headline-md mb-2">Scalable Design</h3>
+<p class="text-on-surface-variant font-body-md text-body-md">Architecture that breathes. Built to handle 10x growth without a 10x rewrite.</p>
+</div>
+</div>
+</div>
+<!-- Right: Headshot & Code Visual -->
+<div class="lg:col-span-5 sticky top-32 space-y-gutter">
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/10 blur-3xl rounded-full opacity-50 group-hover:opacity-80 transition-opacity"></div>
+<div class="relative glass-card rounded-2xl overflow-hidden aspect-square">
+<img alt="Professional Headshot" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700" data-alt="A professional portrait of a senior software engineer in a dark, minimalist tech environment. The subject wears a sharp dark shirt, looking confidently at the camera. The lighting is low-key with a subtle cyan rim light on the shoulder, suggesting a sophisticated high-end engineering laboratory aesthetic. The background is softly blurred with hints of server rack lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjVMtHF-qeYYLwZd3O7uQHKGEGnwOa6rwV4zm--TFhtEaVxgRKgXZm_9xIhAo9IazvZ6CmED-HR-JqVmzZM9K5NvE6t7QJz3yvmuJWIlzbkefFgWDrbaDUiTdJwj1AQV4xyQRcSjbe_bwECwKauJ57WsfRya-Juw_ectaTGDhAjuSRQ96wbQnqVG7QPihkgKwL_cV06Fn9ycRRGppWeKunA18zrCY6oB0bbhOJFZoBKFPNnnfLhaqYFcHl4aD9YOHjXxkRFXlcivfL"/>
+</div>
+</div>
+<!-- Code Block Mockup -->
+<div class="glass-card rounded-xl overflow-hidden shadow-2xl border border-outline-variant/20">
+<div class="bg-surface-variant/30 px-4 py-2 flex items-center justify-between border-b border-outline-variant/10">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-error/40"></div>
+<div class="w-3 h-3 rounded-full bg-primary-fixed-dim/40"></div>
+<div class="w-3 h-3 rounded-full bg-secondary/40"></div>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">SystemArchitect.java</span>
+</div>
+<div class="p-6 font-code-sm text-code-sm leading-relaxed overflow-x-auto whitespace-nowrap">
+<div class="flex gap-4">
+<span class="text-outline-variant">01</span>
+<span class="syntax-keyword">public class</span> <span class="text-on-surface">SystemArchitect</span> {
+                        </div>
+<div class="flex gap-4">
+<span class="text-outline-variant">02</span>
+<span class="pl-4 syntax-comment">// Philosophy: Scalability by design</span>
+</div>
+<div class="flex gap-4">
+<span class="text-outline-variant">03</span>
+<span class="pl-4 syntax-keyword">private static final</span> String GOAL = <span class="syntax-string">"RESILIENCE"</span>;
+                        </div>
+<div class="flex gap-4">
+<span class="text-outline-variant">04</span>
+</div>
+<div class="flex gap-4">
+<span class="text-outline-variant">05</span>
+<span class="pl-4 syntax-keyword">public void</span> <span class="text-secondary">build</span>(System s) {
+                        </div>
+<div class="flex gap-4">
+<span class="text-outline-variant">06</span>
+<span class="pl-8 text-on-surface">s.validate().optimize().deploy();</span>
+</div>
+<div class="flex gap-4">
+<span class="text-outline-variant">07</span>
+<span class="pl-4">}</span>
+</div>
+<div class="flex gap-4">
+<span class="text-outline-variant">08</span>
+<span>}</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Contact Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter pt-section-gap border-t border-outline-variant/10" id="contact">
+<div class="lg:col-span-4 space-y-8">
+<header>
+<span class="font-label-caps text-label-caps text-secondary tracking-widest block mb-4">// COLLABORATE</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Let's build something <br/><span class="text-primary">persistent.</span></h2>
+</header>
+<div class="space-y-4">
+<p class="text-on-surface-variant">Available for architectural consultation, high-stakes development, or technical leadership.</p>
+<div class="flex flex-col gap-4 pt-4">
+<a class="flex items-center gap-4 group" href="mailto:engineer@architect-os.io">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary">mail</span>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps text-on-surface-variant">EMAIL</span>
+<span class="text-on-surface font-medium">engineer@architect-os.io</span>
+</div>
+</a>
+<div class="flex gap-4 mt-4">
+<a class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center hover:bg-secondary/20 transition-all hover:-translate-y-1" href="#">
+<span class="material-symbols-outlined text-secondary">code</span>
+</a>
+<a class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center hover:bg-secondary/20 transition-all hover:-translate-y-1" href="#">
+<span class="material-symbols-outlined text-secondary">share</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-8">
+<div class="glass-card p-8 md:p-12 rounded-2xl relative overflow-hidden">
+<!-- Subtle shader background for form -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute inset-0 bg-gradient-to-br from-primary via-transparent to-secondary"></div>
+</div>
+<form class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-10">
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">NAME</label>
+<input class="form-input w-full py-2 text-on-surface" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">EMAIL ADDRESS</label>
+<input class="form-input w-full py-2 text-on-surface" placeholder="john@company.com" type="email"/>
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">PROJECT BRIEF / MESSAGE</label>
+<textarea class="form-input w-full py-2 text-on-surface resize-none" placeholder="Describe the architectural challenge..." rows="4"></textarea>
+</div>
+<div class="md:col-span-2 flex justify-end">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-lg font-label-caps text-label-caps font-bold active:scale-95 transition-all technical-glow flex items-center gap-3 group" type="submit">
+                                TRANSMIT MESSAGE
+                                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/10 w-full py-16">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-gutter">
+<div class="flex flex-col gap-2 items-center md:items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">ARCHITECT_OS</span>
+<p class="text-on-surface-variant text-body-md opacity-60">© 2024 Senior Systems Architect. Built with Precision.</p>
+</div>
+<div class="flex gap-gutter items-center">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-all duration-200 hover:-translate-y-1" href="#">GitHub</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-all duration-200 hover:-translate-y-1" href="#">LinkedIn</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-all duration-200 hover:-translate-y-1" href="#">Email</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for form inputs
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label').style.color = '#60f99e';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('label').style.color = '';
+            });
+        });
+
+        // Simple scroll reveal for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+            observer.observe(card);
+        });
+    </script>
+</body></html>
