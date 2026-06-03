@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className="relative z-10 w-full border-t border-outline-variant/10 bg-surface-container-lowest py-16">
       <div className="mx-auto flex max-w-container-max flex-col items-center justify-between gap-gutter px-margin-mobile md:flex-row md:px-margin-desktop">
         <div className="font-mono text-label-caps text-on-surface-variant">
-          {displayName} // {title.toUpperCase()} @ {currentCompany.toUpperCase()}
+          {displayName}{' // '}{title.toUpperCase()} @ {currentCompany.toUpperCase()}
         </div>
         <p className="font-mono text-body-md text-on-surface-variant opacity-60">
           © {year} {displayName}. Built with Precision.
