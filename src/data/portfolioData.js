@@ -178,6 +178,98 @@ const portfolioData = {
     },
   ],
 
+  testimonials: [
+    {
+      id: 1,
+      name: 'Priya Sharma',
+      role: 'Tech Lead',
+      company: 'Deloitte',
+      avatarColor: 'linear-gradient(135deg, #4F46E5, #7C3AED)',
+      quote:
+        'Kartik led our ABDM healthcare API integration with remarkable clarity. His Spring Boot services handled patient data workflows with zero downtime during the M1 rollout — exactly the kind of reliability you want in production healthcare systems.',
+    },
+    {
+      id: 2,
+      name: 'Arjun Mehta',
+      role: 'Senior Backend Engineer',
+      company: 'Tata Elxsi',
+      avatarColor: 'linear-gradient(135deg, #0EA5E9, #2563EB)',
+      quote:
+        'During the Shahid VIP launch, Kartik\'s backend handled 500K+ concurrent requests without breaking a sweat. His Redis caching strategy and Kafka event pipelines cut our API latency by nearly 40%. Genuinely one of the strongest engineers on the team.',
+    },
+    {
+      id: 3,
+      name: 'Sneha Reddy',
+      role: 'Android Engineering Lead',
+      company: 'Jio',
+      avatarColor: 'linear-gradient(135deg, #10B981, #059669)',
+      quote:
+        'Kartik shipped features to 125M+ users and still cared about every frame drop. His AI recommendation module using TF-IDF was clever, but what impressed me most was how he mentored junior devs on Clean Architecture without slowing delivery.',
+    },
+    {
+      id: 4,
+      name: 'Rahul Kapoor',
+      role: 'Engineering Manager',
+      company: 'Celebal Technologies',
+      avatarColor: 'linear-gradient(135deg, #F59E0B, #D97706)',
+      quote:
+        'He built our Azure Data Factory pipelines and Docker-based CI/CD from scratch. Kartik doesn\'t just write code — he thinks about the full deployment lifecycle. Our release cycle went from weekly to daily because of his automation work.',
+    },
+    {
+      id: 5,
+      name: 'Ananya Iyer',
+      role: 'Staff Software Engineer',
+      company: 'Independent Consultant',
+      avatarColor: 'linear-gradient(135deg, #EC4899, #BE185D)',
+      quote:
+        'I reviewed Kartik\'s microservices architecture for a fintech client and was impressed by his layered API design. JWT/RBAC implementation was textbook, test coverage was solid, and his documentation made onboarding new engineers painless.',
+    },
+    {
+      id: 6,
+      name: 'Vikram Singh',
+      role: 'Platform Architect',
+      company: 'Tata Elxsi',
+      avatarColor: 'linear-gradient(135deg, #6366F1, #4338CA)',
+      quote:
+        'Kartik has a rare combination of deep Android knowledge and serious backend chops. He architected our Elasticsearch indexing layer and PostgreSQL schemas for 17+ TV channels — complex domain, clean execution.',
+    },
+  ],
+
+  skillCategories: [
+    {
+      label: 'Mobile Engineering',
+      skills: [
+        { name: 'Kotlin / Android SDK', pct: 94 },
+        { name: 'Jetpack & Compose', pct: 90 },
+        { name: 'Clean Architecture', pct: 92 },
+      ],
+    },
+    {
+      label: 'Backend Systems',
+      skills: [
+        { name: 'Java / Spring Boot', pct: 95 },
+        { name: 'Microservices & Kafka', pct: 91 },
+        { name: 'REST & GraphQL APIs', pct: 93 },
+      ],
+    },
+    {
+      label: 'Cloud & DevOps',
+      skills: [
+        { name: 'Docker & Kubernetes', pct: 88 },
+        { name: 'Microsoft Azure', pct: 86 },
+        { name: 'CI/CD Pipelines', pct: 90 },
+      ],
+    },
+    {
+      label: 'Data & Persistence',
+      skills: [
+        { name: 'PostgreSQL & Redis', pct: 92 },
+        { name: 'Elasticsearch', pct: 87 },
+        { name: 'JPA / Hibernate', pct: 89 },
+      ],
+    },
+  ],
+
   skills: [
     { name: 'Java', icon: 'FaJava', category: 'Backend & Frameworks' },
     { name: 'Kotlin', icon: 'SiKotlin', category: 'Backend & Frameworks' },

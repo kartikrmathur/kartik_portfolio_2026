@@ -13,7 +13,7 @@ const Footer = () => {
           {displayName}{' // '}{title.toUpperCase()} @ {currentCompany.toUpperCase()}
         </div>
         <p className="font-mono text-body-md text-on-surface-variant opacity-60">
-          © {year} {displayName}. Built with Precision.
+          © {year} {displayName}.
         </p>
         <div className="flex gap-8">
           {[

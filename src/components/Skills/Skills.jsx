@@ -1,4 +1,5 @@
 import MaterialIcon from '../MaterialIcon/MaterialIcon';
+import RotatingSkills from '../RotatingSkills/RotatingSkills';
 import portfolioData from '../../data/portfolioData';
 
 const mobileSkills = [
@@ -39,6 +40,8 @@ const Skills = () => {
           Over {yearsExperience} Years of Scale.
         </h1>
       </header>
+
+      <RotatingSkills />
 
       <div className="mb-24 grid grid-cols-1 gap-gutter md:grid-cols-12">
         <div className="glass-card relative overflow-hidden rounded-xl p-8 md:col-span-7">

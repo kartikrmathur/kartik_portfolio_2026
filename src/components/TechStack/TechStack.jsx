@@ -1,4 +1,5 @@
 import MaterialIcon from '../MaterialIcon/MaterialIcon';
+import RotatingSkills from '../RotatingSkills/RotatingSkills';
 
 const androidChips = ['Kotlin', 'Jetpack', 'Android SDK', 'Coroutines'];
 const backendItems = [
@@ -28,6 +29,8 @@ const TechStack = () => (
         testability, and enterprise-grade performance.
       </p>
     </div>
+
+    <RotatingSkills />
 
     <div className="grid h-full grid-cols-1 grid-rows-auto gap-gutter md:grid-cols-12 md:grid-rows-2">
       <div className="glass-card group relative overflow-hidden rounded-xl md:col-span-8">

@@ -15,18 +15,9 @@ export const stitchImages = {
     local('project-2.jpg'),
     local('project-3.jpg'),
   ],
-
-  albums: [
-    local('album-1.jpg'),
-    local('album-2.jpg'),
-    local('album-3.jpg'),
-  ],
 };
 
 export const getProjectImage = (index) =>
   stitchImages.projects[index % stitchImages.projects.length];
-
-export const getAlbumImage = (index) =>
-  stitchImages.albums[index % stitchImages.albums.length];
 
 export default stitchImages;

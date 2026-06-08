@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import MaterialIcon from '../MaterialIcon/MaterialIcon';
+import LazyImage from '../LazyImage/LazyImage';
 import { getProjectImage } from '../../data/stitchImages';
 import portfolioData from '../../data/portfolioData';
 
@@ -58,11 +59,11 @@ const Projects = () => {
                   className="group cursor-pointer"
                 >
                   <div className="relative mb-6 aspect-video overflow-hidden rounded-2xl bg-surface-container">
-                    <img
+                    <LazyImage
                       src={getProjectImage(imageIndex)}
                       alt={project.title}
-                      className="img-grayscale h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
-                      loading="lazy"
+                      eager={index === 0}
+                      imgClassName="img-grayscale h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60" />
                     <div className="absolute bottom-6 left-6 flex gap-2">
@@ -138,11 +139,10 @@ const Projects = () => {
                   className="flex h-full flex-col"
                 >
                   <div className="relative aspect-video overflow-hidden">
-                    <img
+                    <LazyImage
                       src={getProjectImage(imageIndex)}
                       alt={project.title}
-                      className="h-full w-full object-cover grayscale-[40%] transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
-                      loading="lazy"
+                      imgClassName="h-full w-full object-cover grayscale-[40%] transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60" />
                   </div>

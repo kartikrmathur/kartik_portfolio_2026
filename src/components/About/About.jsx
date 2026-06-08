@@ -1,6 +1,7 @@
 import { stitchImages } from '../../data/stitchImages';
 import portfolioData from '../../data/portfolioData';
 import MaterialIcon from '../MaterialIcon/MaterialIcon';
+import LazyImage from '../LazyImage/LazyImage';
 import Contact from '../Contact/Contact';
 
 const About = () => {
@@ -74,11 +75,10 @@ const About = () => {
           <div className="group relative">
             <div className="absolute -inset-4 rounded-full bg-primary-container/10 opacity-50 blur-3xl transition-opacity group-hover:opacity-80" />
             <div className="glass-card relative aspect-square overflow-hidden rounded-2xl">
-              <img
+              <LazyImage
                 src={stitchImages.portrait}
                 alt="Kartik Mathur"
-                className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
-                loading="lazy"
+                imgClassName="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
               />
             </div>
           </div>
