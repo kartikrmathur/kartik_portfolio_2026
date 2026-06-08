@@ -1,0 +1,42 @@
+# Kartik Mathur — Software Engineer Portfolio
+# https://kartikmathur.netlify.app
+
+# --- Search engines (allow full public site) ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: *
+Allow: /
+
+# Source maps are not useful in search results; save crawl budget
+Disallow: /static/js/*.map
+Disallow: /static/css/*.map
+
+# --- AI / LLM crawlers (portfolio is intended to be discoverable) ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# --- Discovery ---
+Sitemap: https://kartikmathur.netlify.app/sitemap.xml
+
+# Machine-readable summary for AI assistants (llms.txt spec)
+# https://kartikmathur.netlify.app/llms.txt
+# https://kartikmathur.netlify.app/llm.txt
