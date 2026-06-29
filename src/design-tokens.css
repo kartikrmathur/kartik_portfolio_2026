@@ -1,120 +1,49 @@
-/**
- * Kinetic Architecture — design tokens (stitch_next_gen_android_engineering_portfolio)
- */
+:root {
+  --bg: #0A0C10;
+  --surface: #14171C;
+  --surface2: #1A1E24;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #E6E8EC;
+  --muted: #8A929E;
+  --primary: #3DDC84;
+  --blue: #6CA8FF;
+  --cyan: #00E5FF;
+  --code-bg: #14171C;
+  --code-comment: #7d848e;
+  --code-keyword: #c792ea;
+  --code-text: #c8cdd4;
+  --shadow-alpha: 0.4;
+  --dot-red: #ff5f57;
+  --dot-yellow: #febc2e;
+  --dot-green: #28c840;
+  --nav-bg: color-mix(in srgb, #0A0C10 72%, transparent);
+  --glass-mix: color-mix(in srgb, var(--primary) 24%, transparent);
+  --glow-mix: color-mix(in srgb, var(--primary) 30%, transparent);
 
-:root,
-[data-theme='dark'] {
-  --color-background: #101415;
-  --color-surface: #101415;
-  --color-surface-dim: #101415;
-  --color-surface-bright: #363a3b;
-  --color-surface-container-lowest: #0b0f10;
-  --color-surface-container-low: #191c1e;
-  --color-surface-container: #1d2022;
-  --color-surface-container-high: #272a2c;
-  --color-surface-container-highest: #323537;
-  --color-surface-variant: #323537;
-  --color-on-surface: #e0e3e5;
-  --color-on-surface-variant: #c7c4d8;
-  --color-on-background: #e0e3e5;
-
-  --color-primary: #c3c0ff;
-  --color-on-primary: #ffffff;
-  --color-primary-container: #4f46e5;
-  --color-on-primary-container: #dad7ff;
-  --color-primary-fixed-dim: #c3c0ff;
-
-  --color-secondary: #bec6e0;
-  --color-on-secondary: #283044;
-  --color-secondary-container: #3f465c;
-  --color-on-secondary-container: #adb4ce;
-
-  --color-tertiary: #bcc7de;
-  --color-on-tertiary: #263143;
-  --color-tertiary-container: #566175;
-  --color-on-tertiary-container: #d1dcf4;
-
-  --color-outline: #918fa1;
-  --color-outline-variant: #464555;
-
-  --color-error: #ffb4ab;
-  --color-on-error: #690005;
-  --color-success: #4f46e5;
-
-  --glass-bg: rgba(29, 32, 34, 0.6);
-  --glass-border: rgba(145, 143, 161, 0.1);
-  --input-bg: transparent;
-  --noise-opacity: 0;
-  --scrollbar-track: #0b0f10;
-  --scrollbar-thumb: #464555;
-
-  --glow-rgb: 79, 70, 229;
-
-  --ease-reveal: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-  --duration-fast: 150ms;
-  --duration-normal: 300ms;
-  --duration-slow: 500ms;
-  --duration-reveal: 800ms;
-
-  --radius-sm: 0.125rem;
-  --radius-md: 0.25rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-card: 0.5rem;
-  --radius-full: 9999px;
-
-  --container-max: 1280px;
-  --section-gap: 7.5rem;
-  --margin-desktop: 80px;
-  --margin-mobile: 20px;
-  --gutter: 24px;
-  --gutter-mobile: 16px;
+  --font-display: 'Hanken Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-[data-theme='light'] {
-  --color-background: #f4f4f6;
-  --color-surface: #ffffff;
-  --color-surface-dim: #e8e8ec;
-  --color-surface-bright: #ffffff;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f0f0f4;
-  --color-surface-container: #ebebf0;
-  --color-surface-container-high: #e0e0e8;
-  --color-surface-container-highest: #d4d4dc;
-  --color-surface-variant: #e0e0e8;
-  --color-on-surface: #1a1c1e;
-  --color-on-surface-variant: #464555;
-  --color-on-background: #1a1c1e;
-
-  --color-primary: #4f46e5;
-  --color-on-primary: #ffffff;
-  --color-primary-container: #4f46e5;
-  --color-on-primary-container: #ffffff;
-  --color-primary-fixed-dim: #6366f1;
-
-  --color-secondary: #3f465c;
-  --color-on-secondary: #ffffff;
-  --color-secondary-container: #dae2fd;
-  --color-on-secondary-container: #131b2e;
-
-  --color-tertiary: #566175;
-  --color-on-tertiary: #ffffff;
-  --color-tertiary-container: #d1dcf4;
-  --color-on-tertiary-container: #263143;
-
-  --color-outline: #918fa1;
-  --color-outline-variant: #c7c4d8;
-
-  --color-error: #ba1a1a;
-  --color-on-error: #ffffff;
-  --color-success: #4f46e5;
-
-  --glass-bg: rgba(255, 255, 255, 0.75);
-  --glass-border: rgba(70, 69, 85, 0.15);
-  --input-bg: #ffffff;
-  --scrollbar-track: #f0f0f4;
-  --scrollbar-thumb: #c7c4d8;
-
-  --glow-rgb: 79, 70, 229;
+[data-theme="light"] {
+  --bg: #F5F6F8;
+  --surface: #FFFFFF;
+  --surface2: #EEF0F3;
+  --border: rgba(0, 0, 0, 0.1);
+  --text: #1A1E24;
+  --muted: #5F6873;
+  --primary: #1A9F53;
+  --blue: #3B7FD9;
+  --cyan: #0094A8;
+  --code-bg: #F8F9FB;
+  --code-comment: #8C939E;
+  --code-keyword: #8839CC;
+  --code-text: #333840;
+  --shadow-alpha: 0.08;
+  --dot-red: #ff5f57;
+  --dot-yellow: #febc2e;
+  --dot-green: #28c840;
+  --nav-bg: color-mix(in srgb, #F5F6F8 82%, transparent);
+  --glass-mix: color-mix(in srgb, var(--primary) 14%, transparent);
+  --glow-mix: color-mix(in srgb, var(--primary) 15%, transparent);
 }

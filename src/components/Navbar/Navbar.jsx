@@ -1,170 +1,139 @@
 import { useState, useEffect } from 'react';
-import { Link as ScrollLink } from 'react-scroll';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import { useTheme } from '../../ThemeContext';
-import portfolioData from '../../data/portfolioData';
 
-const navItems = [
-  { id: 'projects', label: 'Work', scroll: true },
-  { id: 'skills-preview', label: 'Skills', scroll: true, homeOnly: true },
-  { path: '/me', label: 'About', scroll: false },
-  { id: 'contact', label: 'Contact', scroll: true },
+const navLinks = [
+  { label: '~/about', href: '#about' },
+  { label: '~/stacks', href: '#stacks' },
+  { label: '~/work', href: '#work' },
+  { label: '~/timeline', href: '#timeline' },
+  { label: '~/contact', href: '#contact' },
 ];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
   const { theme, toggleTheme } = useTheme();
-  const isHome = location.pathname === '/';
-  const { resumeLink } = portfolioData.personalInfo;
-
-  const brand = portfolioData.personalInfo.name
-    .replace(/\s+R\s+/i, ' ')
-    .replace(/"R"\s*/i, '')
-    .trim();
+  const isDark = theme === 'dark';
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
+    return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
-  const closeMobile = () => setMenuOpen(false);
-
-  const linkClass = (active) =>
-    `font-mono text-label-caps transition-colors duration-300 ${
-      active
-        ? 'border-b-2 border-primary-container pb-1 font-bold text-primary-container'
-        : 'font-medium text-on-surface-variant hover:text-primary-container'
-    }`;
-
-  const renderNavLink = (item) => {
-    if (item.path) {
-      const active = location.pathname === item.path;
-      return (
-        <RouterLink
-          key={item.label}
-          to={item.path}
-          className={linkClass(active)}
-          onClick={closeMobile}
-        >
-          {item.label}
-        </RouterLink>
-      );
-    }
-
-    if (item.homeOnly && !isHome) {
-      return (
-        <RouterLink
-          key={item.label}
-          to="/#skills-preview"
-          className={linkClass(false)}
-          onClick={closeMobile}
-        >
-          {item.label}
-        </RouterLink>
-      );
-    }
-
-    if (isHome && item.scroll) {
-      return (
-        <ScrollLink
-          key={item.label}
-          to={item.id}
-          smooth
-          duration={500}
-          offset={-90}
-          spy
-          className={`${linkClass(false)} cursor-pointer`}
-          onClick={closeMobile}
-        >
-          {item.label}
-        </ScrollLink>
-      );
-    }
-
-    return (
-      <RouterLink
-        key={item.label}
-        to={`/#${item.id}`}
-        className={linkClass(false)}
-        onClick={closeMobile}
-      >
-        {item.label}
-      </RouterLink>
-    );
-  };
-
   return (
-    <>
-      <nav
-        className="glass-nav fixed top-0 z-50 h-20 w-full"
-        aria-label="Main navigation"
-      >
-        <div className="mx-auto flex h-full max-w-container-max items-center justify-between px-margin-mobile md:px-margin-desktop">
-          <RouterLink
-            to="/"
-            className="font-display text-headline-lg-mobile font-bold tracking-tight text-primary-container md:text-headline-lg"
-            onClick={closeMobile}
-          >
-            {brand}
-          </RouterLink>
+    <nav style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+      backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
+      background: 'var(--nav-bg)',
+      borderBottom: '1px solid var(--border)',
+      transition: 'background .3s, border-color .3s',
+    }}>
+      <div style={{
+        maxWidth: 1180, margin: '0 auto', padding: '14px 24px',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20,
+      }}>
+        <a href="#index" style={{ display: 'flex', alignItems: 'center', gap: 11 }}>
+          <span style={{
+            width: 34, height: 34, borderRadius: 9,
+            background: 'var(--primary)', color: isDark ? '#04130b' : '#fff',
+            fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: 14,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            letterSpacing: '-0.5px', transition: 'background .3s',
+          }}>KM</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 14, fontWeight: 500, letterSpacing: '0.5px' }}>
+            kartik<span style={{ color: 'var(--primary)' }}>.dev</span>
+          </span>
+        </a>
 
-          <div className="hidden items-center gap-10 md:flex">
-            {navItems.map(renderNavLink)}
-          </div>
+        {/* Desktop nav */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }} className="nav-desktop">
+          {navLinks.map((l) => (
+            <a key={l.label} href={l.href} className="nav-link" style={{
+              color: 'var(--muted)', fontFamily: 'var(--font-mono)', fontSize: '12.5px',
+              letterSpacing: '0.04em', padding: '8px 12px', borderRadius: 7,
+              transition: 'color .18s, background .18s',
+            }}>{l.label}</a>
+          ))}
 
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              className="hidden min-h-[44px] rounded px-3 py-2 font-mono text-label-caps text-on-surface-variant transition-colors hover:text-primary-container md:block"
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-            >
-              {theme === 'light' ? 'DARK' : 'LIGHT'}
-            </button>
-            <a
-              href={resumeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden rounded bg-primary-container px-6 py-3 font-mono text-label-caps text-on-primary transition-transform hover:scale-95 active:scale-90 md:inline-block"
-            >
-              Download CV
-            </a>
-            <button
-              type="button"
-              className="flex min-h-[44px] min-w-[44px] items-center justify-center text-on-surface md:hidden"
-              onClick={() => setMenuOpen((p) => !p)}
-              aria-label="Toggle menu"
-              aria-expanded={menuOpen}
-            >
-              {menuOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
-            </button>
-          </div>
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+            className="theme-toggle"
+            style={{
+              width: 36, height: 36, borderRadius: 9,
+              background: 'var(--surface)', border: '1px solid var(--border)',
+              color: 'var(--text)', display: 'flex', alignItems: 'center',
+              justifyContent: 'center', fontSize: 16,
+              transition: 'background .18s, border-color .18s, transform .18s',
+              marginLeft: 4,
+            }}
+          >{isDark ? '☀' : '☾'}</button>
+
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="resume-btn" style={{
+            display: 'flex', alignItems: 'center', gap: 7,
+            background: 'var(--primary)', color: isDark ? '#04130b' : '#fff',
+            fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '12.5px',
+            padding: '9px 15px', borderRadius: 8,
+            transition: 'transform .18s, box-shadow .18s, background .3s',
+          }}>resume.pdf ↗</a>
         </div>
-      </nav>
 
-      {menuOpen && (
-        <div
-          className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-surface-container-lowest/95 pt-20 backdrop-blur-xl md:hidden"
-          role="dialog"
-          aria-modal="true"
-        >
-          {navItems.map(renderNavLink)}
-          <a
-            href={resumeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded bg-primary-container px-6 py-3 font-mono text-label-caps text-on-primary"
-            onClick={closeMobile}
+        {/* Mobile hamburger */}
+        <div style={{ display: 'none', alignItems: 'center', gap: 8 }} className="nav-mobile-controls">
+          <button
+            onClick={toggleTheme}
+            aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+            style={{
+              width: 36, height: 36, borderRadius: 9,
+              background: 'var(--surface)', border: '1px solid var(--border)',
+              color: 'var(--text)', display: 'flex', alignItems: 'center',
+              justifyContent: 'center', fontSize: 16,
+            }}
+          >{isDark ? '☀' : '☾'}</button>
+          <button
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label="Toggle menu"
+            style={{
+              background: 'none', color: 'var(--text)',
+              fontFamily: 'var(--font-mono)', fontSize: 20, padding: 8,
+            }}
           >
-            Download CV
-          </a>
+            {menuOpen ? '✕' : '☰'}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div style={{
+          position: 'fixed', inset: 0, top: 60, background: 'var(--bg)',
+          zIndex: 49, display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center', gap: 24,
+        }} className="nav-mobile-menu">
+          {navLinks.map((l) => (
+            <a key={l.label} href={l.href} onClick={() => setMenuOpen(false)} style={{
+              color: 'var(--text)', fontFamily: 'var(--font-mono)', fontSize: 16,
+              padding: '12px 24px',
+            }}>{l.label}</a>
+          ))}
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} style={{
+            background: 'var(--primary)', color: isDark ? '#04130b' : '#fff',
+            fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: 14,
+            padding: '12px 24px', borderRadius: 10,
+          }}>resume.pdf ↗</a>
         </div>
       )}
-    </>
+
+      <style>{`
+        .nav-link:hover { color: var(--text) !important; background: var(--surface) !important; }
+        .resume-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 22px var(--glass-mix); }
+        .theme-toggle:hover { border-color: var(--primary) !important; transform: scale(1.08); }
+        @media (max-width: 768px) {
+          .nav-desktop { display: none !important; }
+          .nav-mobile-controls { display: flex !important; }
+        }
+      `}</style>
+    </nav>
   );
 };
 

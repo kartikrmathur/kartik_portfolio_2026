@@ -1,60 +1,72 @@
-import { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import RadialGlow from './components/RadialGlow/RadialGlow';
 import Hero from './components/Hero/Hero';
-import TechStack from './components/TechStack/TechStack';
+import Stats from './components/Stats/Stats';
 import About from './components/About/About';
-import Skills from './components/Skills/Skills';
+import DualStack from './components/DualStack/DualStack';
+import TechStack from './components/TechStack/TechStack';
+import Proficiency from './components/Proficiency/Proficiency';
+import CodeBlock from './components/CodeBlock/CodeBlock';
+import Timeline from './components/Timeline/Timeline';
 import Projects from './components/Projects/Projects';
 import Testimonials from './components/Testimonials/Testimonials';
+import Music from './components/Music/Music';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
-import { useRevealGroup } from './hooks/useReveal';
-import { useGlassCardGlow } from './hooks/useGlassCardGlow';
-import './App.css';
-
-function HomePage() {
-  useRevealGroup('.reveal');
-  return (
-    <main className="relative z-10 mx-auto max-w-container-max px-margin-mobile pb-section-gap pt-24 md:px-margin-desktop">
-      <Hero />
-      <TechStack />
-      <Projects />
-      <Testimonials />
-      <Contact variant="cta" />
-    </main>
-  );
-}
-
-function MePage() {
-  useRevealGroup('.reveal');
-  return (
-    <main className="relative z-10 mx-auto max-w-container-max px-margin-mobile pb-section-gap pt-24 md:px-margin-desktop">
-      <About />
-      <Skills />
-    </main>
-  );
-}
 
 function App() {
-  const location = useLocation();
-  useGlassCardGlow();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
-
   return (
-    <div className="App relative min-h-screen bg-background">
-      <div className="pointer-events-none fixed inset-0 grid-overlay -z-[1]" aria-hidden="true" />
-      <RadialGlow />
+    <div style={{ background: 'var(--bg)', color: 'var(--text)', fontFamily: "var(--font-body)", minHeight: '100vh', position: 'relative', overflowX: 'hidden', transition: 'background .3s, color .3s' }}>
+      {/* Grid background */}
+      <div
+        aria-hidden="true"
+        style={{
+          pointerEvents: 'none',
+          position: 'fixed',
+          inset: 0,
+          zIndex: 0,
+          backgroundImage: 'linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)',
+          backgroundSize: '64px 64px',
+          opacity: 0.35,
+          maskImage: 'radial-gradient(ellipse 90% 70% at 50% 0%, #000 30%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 90% 70% at 50% 0%, #000 30%, transparent 80%)',
+        }}
+      />
+      {/* Green glow */}
+      <div
+        aria-hidden="true"
+        style={{
+          pointerEvents: 'none',
+          position: 'fixed',
+          top: -260,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: 900,
+          height: 560,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, var(--primary) 0%, transparent 65%)',
+          opacity: 0.12,
+          filter: 'blur(30px)',
+          zIndex: 0,
+          transition: 'background .3s',
+        }}
+      />
+
       <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/me" element={<MePage />} />
-      </Routes>
-      <Footer />
+      <main style={{ position: 'relative', zIndex: 1, maxWidth: 1180, margin: '0 auto', padding: '0 24px' }}>
+        <Hero />
+        <Stats />
+        <About />
+        <DualStack />
+        <TechStack />
+        <Proficiency />
+        <CodeBlock />
+        <Timeline />
+        <Projects />
+        <Testimonials />
+        <Music />
+        <Contact />
+        <Footer />
+      </main>
     </div>
   );
 }
