@@ -38,9 +38,9 @@ const About = () => {
             background: 'var(--surface2)', fontFamily: 'var(--font-mono)',
             fontSize: 11, color: 'var(--muted)',
           }}>
-            <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#ff5f57' }} />
-            <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#febc2e' }} />
-            <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#28c840' }} />
+            <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'var(--dot-red)' }} />
+            <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'var(--dot-yellow)' }} />
+            <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'var(--dot-green)' }} />
             <span style={{ marginLeft: 6 }}>cat ~/about.json</span>
           </div>
           <div style={{
@@ -50,7 +50,7 @@ const About = () => {
             {facts.map((f) => (
               <div key={f.k} style={{
                 display: 'flex', gap: 10, padding: '7px 0',
-                borderBottom: '1px solid rgba(255,255,255,0.05)',
+                borderBottom: '1px solid var(--border)',
               }}>
                 <span style={{ color: 'var(--muted)', minWidth: 64 }}>{f.k}</span>
                 <span style={{ color: 'var(--text)' }}>{f.v}</span>

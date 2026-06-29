@@ -43,7 +43,7 @@ const Projects = () => {
           <div aria-hidden="true" style={{
             position: 'absolute', top: -40, right: -40,
             width: 240, height: 240, borderRadius: '50%',
-            background: 'radial-gradient(circle, color-mix(in srgb, var(--blue) 22%, transparent), transparent 65%)',
+            background: 'radial-gradient(circle, color-mix(in srgb, var(--blue) 14%, transparent), transparent 65%)',
           }} />
           <div style={{
             position: 'relative', display: 'grid',

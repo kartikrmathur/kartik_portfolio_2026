@@ -85,15 +85,15 @@ const Hero = () => (
           padding: '9px 13px', borderBottom: '1px solid var(--border)',
           background: 'var(--surface2)',
         }}>
-          <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#ff5f57' }} />
-          <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#febc2e' }} />
-          <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#28c840' }} />
+          <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'var(--dot-red)' }} />
+          <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'var(--dot-yellow)' }} />
+          <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'var(--dot-green)' }} />
           <span style={{ marginLeft: 8, color: 'var(--muted)', fontSize: '10.5px' }}>zsh — gradle</span>
         </div>
         <div style={{ padding: '13px 15px', lineHeight: 1.85, color: 'var(--muted)' }}>
           <div><span style={{ color: 'var(--primary)' }}>$</span> ./gradlew :app:assembleRelease</div>
-          <div style={{ color: '#7d848e' }}>&gt; Task :backend:bootJar</div>
-          <div style={{ color: '#7d848e' }}>&gt; Task :app:compileKotlin</div>
+          <div style={{ color: 'var(--code-comment)' }}>&gt; Task :backend:bootJar</div>
+          <div style={{ color: 'var(--code-comment)' }}>&gt; Task :app:compileKotlin</div>
           <div style={{ color: 'var(--primary)' }}>BUILD SUCCESSFUL <span style={{ color: 'var(--muted)' }}>in 4s</span></div>
           <div>
             <span style={{ color: 'var(--primary)' }}>$</span>{' '}

@@ -49,7 +49,7 @@ const Timeline = () => {
             <div key={i} className="timeline-row" style={{
               display: 'grid', gridTemplateColumns: '130px 96px 1fr',
               gap: 14, padding: 16,
-              borderBottom: '1px solid rgba(255,255,255,0.06)',
+              borderBottom: '1px solid var(--border)',
               transition: 'background .15s',
             }}>
               <div style={{
